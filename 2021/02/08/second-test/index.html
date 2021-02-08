@@ -464,7 +464,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="hexo-d-命令只实现部分-执行失败"><a href="#hexo-d-命令只实现部分-执行失败" class="headerlink" title="hexo d 命令只实现部分(执行失败)"></a>hexo d 命令只实现部分(执行失败)</h1><h2 id="问题简述"><a href="#问题简述" class="headerlink" title="问题简述"></a>问题简述</h2><p>在按照相关<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35668237">教程</a>搭建博客时,前面的安装以及<strong>hexo g</strong>,<strong>hexo s</strong>顺利完成，但是在执行<strong>hexo d</strong>时出现了意外,在其执行过程中突然中断,并未显示执行完成的标志:<strong>INFO Deploy done: git</strong></p>
+<p>失败结果如下所示:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br></pre></td></tr></table></figure>
+<h2 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h2><p>在网上查找了许多教程都没有作用，之后又查询了一番，突然发现stackflow上面的一个<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/66095027/after-hexo-d-when-diaplay-copying-files-from-public-folder-git-stopped-i-do">提问</a>和我遇到的问题一样，但是没有人回答，所以等待了一段时间有人回复之后，发现最终引到了hexo官方github里面的issue中的一个<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues/4634">问题</a>，这才明白可能自己遇到了新出现的bug。</p>
+<p>在这里贴出相关解决代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在git bash 里面执行</span></span><br><span class="line">npm un hexo-deployer-git</span><br><span class="line"><span class="comment">#这一句要切换到master分支(.deploy_git/)里面安装</span></span><br><span class="line">npm i hexojs/hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>这也让我明白了如果2小时内找不到任何解决方案的话，最好找到官网及其相关信息查询。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>github新版仓库初始化README时默认是生成main分支而不是master分支，而hexo默认是生成master分支(改了_config.yaml里的branch也没用),所以在生成仓库前把branch默认名的设置更改为master即可。</p>
+<h3 id="配图"><a href="#配图" class="headerlink" title="配图"></a>配图</h3><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>
                 
             </div>
             <hr/>
