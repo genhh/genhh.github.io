@@ -367,10 +367,19 @@
             <div class="tag-chips">
                 
                 
+                <a href="/tags/hexo/" title="hexo: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="hexo" style="background-color: #F9EBEA;">hexo
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/markdown/" title="markdown: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="markdown" style="background-color: #F9EBEA;">markdown
+                            data-tagname="markdown" style="background-color: #F5EEF8;">markdown
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -399,7 +408,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"markdown","weight":1,"link":"/tags/markdown/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"hexo","weight":1,"link":"/tags/hexo/"},{"text":"markdown","weight":1,"link":"/tags/markdown/"}], {
         autoResize: true
     });
 </script>
@@ -478,7 +487,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.9k</span>&nbsp;字
+                class="white-color">2.2k</span>&nbsp;字
             
             
             
@@ -500,6 +509,14 @@
             
             <br>
             
+            
+                <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+                <script>
+                  if (window.mermaid) {
+                    mermaid.initialize({theme: 'forest'});
+                  }
+                </script>
+              
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/genhh" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
@@ -534,9 +551,11 @@
 
 </div>
     </div>
+    
 </footer>
 
 <div class="progress-bar"></div>
+
 
 
     <!-- 搜索遮罩框 -->
