@@ -460,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    558
+                    568
                 </div>
                 
 
@@ -480,7 +480,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="使用爬虫爬取知网目录"><a href="#使用爬虫爬取知网目录" class="headerlink" title="使用爬虫爬取知网目录"></a>使用爬虫爬取知网目录</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>想要获取知网搜索结果页面中的侧栏中的<strong>学科导航</strong>中的大纲的内容，然后依次来构建知识体系。但是后来发现简单爬取只能爬取部分代码，而导航栏的源代码只有在点击相应学科才能加载出相应代码。所以后面用到了<strong>selenium</strong>神器。<br><img src="/2021/02/12/%E4%BD%BF%E7%94%A8selenium-chromedriver%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE/1j65r9.jpg" alt="avatar"></p>
+                <h1 id="使用爬虫爬取知网目录"><a href="#使用爬虫爬取知网目录" class="headerlink" title="使用爬虫爬取知网目录"></a>使用爬虫爬取知网目录</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>想要获取知网搜索结果页面中的侧栏中的<strong>学科导航</strong>中的大纲的内容，然后依次来构建知识体系。但是后来发现简单爬取只能爬取部分代码，而导航栏的源代码只有在点击相应学科才能加载出相应代码。所以后面用到了<strong>selenium</strong>神器。<br><img src="/2021/02/12/%E4%BD%BF%E7%94%A8selenium-chromedriver%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE/1j65r9.jpg" alt="test"></p>
 <h2 id="使用普通爬虫未遂"><a href="#使用普通爬虫未遂" class="headerlink" title="使用普通爬虫未遂"></a>使用普通爬虫未遂</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/270391233">链接</a></p>
 <h2 id="使用selenium进行爬取"><a href="#使用selenium进行爬取" class="headerlink" title="使用selenium进行爬取"></a>使用selenium进行爬取</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37503890/article/details/99292343">链接</a></p>
 <h3 id="下载google-chrome"><a href="#下载google-chrome" class="headerlink" title="下载google chrome"></a>下载google chrome</h3><p><a target="_blank" rel="noopener" href="https://www.google.com/intl/zh-CN/chrome/">链接</a></p>
@@ -525,12 +525,17 @@ f <span class="token operator">=</span> <span class="token builtin">open</span><
 <span class="token keyword">finally</span><span class="token punctuation">:</span>
     f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
     browser<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h3><p>截个图</p>
+<h3 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h3><center>
+
+<p><img src="/2021/02/12/%E4%BD%BF%E7%94%A8selenium-chromedriver%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE/res.png" alt="爬取结果"></p>
+</center>
+
 <p>如果想进行更深入的学习，可以查看selenium的官方文档:</p>
 <p><a target="_blank" rel="noopener" href="https://www.selenium.dev/selenium/docs/api/py/api.html">官方文档</a></p>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/youngleesin/p/10449356.html">selenium.模拟鼠标操作（ActionChains</a></p>
 <p>[2] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/yuer20180726/p/10789426.html">自动化测试基础篇–Selenium获取元素属性</a></p>
 <p>[3] <a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/met-win-scrollto.html">windowscrollTo()用法</a></p>
+<p>[4] <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34163741/article/details/93594002">Python 保存数据的方法（4种方法）</a></p>
 
                 
             </div>
