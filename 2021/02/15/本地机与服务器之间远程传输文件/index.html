@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于OpenCV函数API文档部分说明的理解, Stars Shine">
+    <meta name="keywords" content="本地机与服务器之间远程传输文件, Stars Shine">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于OpenCV函数API文档部分说明的理解 | Stars Shine</title>
+    <title>本地机与服务器之间远程传输文件 | Stars Shine</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于OpenCV函数API文档部分说明的理解</h1>
+                    <h1 class="description center-align post-title">本地机与服务器之间远程传输文件</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/OpenCV/">
-                                <span class="chip bg-color">OpenCV</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">基础</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -451,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-13
+                    2021-02-15
                 </div>
                 
 
@@ -460,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    107
+                    241
                 </div>
                 
 
@@ -480,10 +476,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="关于OpenCV函数API文档部分说明的理解"><a href="#关于OpenCV函数API文档部分说明的理解" class="headerlink" title="关于OpenCV函数API文档部分说明的理解"></a>关于OpenCV函数API文档部分说明的理解</h1><h2 id="opencv文档中函数头的含义"><a href="#opencv文档中函数头的含义" class="headerlink" title="opencv文档中函数头的含义"></a>opencv文档中函数头的含义</h2><p>之前一直不懂<a target="_blank" rel="noopener" href="https://docs.opencv.org/3.0-beta/modules/imgproc/doc/miscellaneous_transformations.html?highlight=threshold#cv2.threshold">opencv函数API文档</a>中python函数头中”[]”的含义， <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/307090054">搜索</a>之后结合自己的思考最终理解其含义。</p>
-<p>根据网页上的函数讲解，与c++的函数头对应即可理解:”[]”内的形参表示的是<strong>函数的输出</strong></p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://docs.opencv.org/3.0-beta/modules/imgproc/doc/miscellaneous_transformations.html?highlight=threshold#cv2.threshold">opencv函数API文档</a></p>
-<p>[2] <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/307090054">搜索</a></p>
+                <h1 id="本地机与服务器之间远程传输文件"><a href="#本地机与服务器之间远程传输文件" class="headerlink" title="本地机与服务器之间远程传输文件"></a>本地机与服务器之间远程传输文件</h1><h2 id="本地机-rightarrow-服务器"><a href="#本地机-rightarrow-服务器" class="headerlink" title="本地机$\rightarrow$服务器"></a>本地机$\rightarrow$服务器</h2><p>上传文件命令:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> file_path_1 root@192.168.1.1:file_path_2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>参数说明:</p>
+<ul>
+<li><strong>file_path_1</strong>: 本地机文件的路径(相对，绝对都可)</li>
+<li><strong>root</strong>:服务器要登录的用户名</li>
+<li><strong>192.168.1.1</strong>:服务器ip地址</li>
+<li><strong>file_path_2</strong>: 上传到服务器上的路径</li>
+</ul>
+<p><strong>注意：</strong> 冒号后面的文件路径与”:”紧连 </p>
+<p>上传目录(整个文件夹)命令:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span>  -r file_path_1 root@192.168.1.1:file_path_2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="服务器-leftarrow-本地机"><a href="#服务器-leftarrow-本地机" class="headerlink" title="服务器$\leftarrow$本地机"></a>服务器$\leftarrow$本地机</h2><p>下载文件命令:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> root@192.168.1.1:file_path_2 file_path_1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>参数说明:</p>
+<ul>
+<li><strong>root</strong>:服务器要登录的用户名</li>
+<li><strong>192.168.1.1</strong>:服务器ip地址</li>
+<li><strong>file_path_2</strong>: 服务器上文件的路径</li>
+<li><strong>file_path_1</strong>: 下载到本地机时文件的路径(相对，绝对都可)</li>
+</ul>
+<p>同样加上 <strong>-r</strong> 参数也可以下载目录</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/eline2018/p/10369893.html">Linux 服务器之间文件传输</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://xxx.com/">引用文章标题2</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://xxx.com/">引用文章标题3</a></p>
 
                 
             </div>
@@ -510,7 +527,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/02/13/%E5%85%B3%E4%BA%8EOpenCV%E5%87%BD%E6%95%B0API%E6%96%87%E6%A1%A3%E9%83%A8%E5%88%86%E8%AF%B4%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/">http://example.com/2021/02/13/%E5%85%B3%E4%BA%8EOpenCV%E5%87%BD%E6%95%B0API%E6%96%87%E6%A1%A3%E9%83%A8%E5%88%86%E8%AF%B4%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/</a>
+                    <a href="http://example.com/2021/02/15/%E6%9C%AC%E5%9C%B0%E6%9C%BA%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E8%BF%9C%E7%A8%8B%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6/">http://example.com/2021/02/15/%E6%9C%AC%E5%9C%B0%E6%9C%BA%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E8%BF%9C%E7%A8%8B%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -548,12 +565,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/OpenCV/">
-                                    <span class="chip bg-color">OpenCV</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">基础</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -599,9 +612,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/02/15/%E6%9C%AC%E5%9C%B0%E6%9C%BA%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E8%BF%9C%E7%A8%8B%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6/">
                     <div class="card-image">
@@ -619,9 +633,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -630,6 +644,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -648,13 +663,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/13/hexo%E8%BD%BD%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/">
+                <a href="/2021/02/13/%E5%85%B3%E4%BA%8EOpenCV%E5%87%BD%E6%95%B0API%E6%96%87%E6%A1%A3%E9%83%A8%E5%88%86%E8%AF%B4%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="hexo载入本地图片">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="关于OpenCV函数API文档部分说明的理解">
                         
-                        <span class="card-title">hexo载入本地图片</span>
+                        <span class="card-title">关于OpenCV函数API文档部分说明的理解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -678,8 +693,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/OpenCV/">
+                        <span class="chip bg-color">OpenCV</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">基础</span>
                     </a>
                     
                 </div>
@@ -810,6 +829,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
