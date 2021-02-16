@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="本地机与服务器之间远程传输文件, Stars Shine">
+    <meta name="keywords" content="python+bat实现由单个pdf生成多个pdf并合并, Stars Shine">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>本地机与服务器之间远程传输文件 | Stars Shine</title>
+    <title>python+bat实现由单个pdf生成多个pdf并合并 | Stars Shine</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">本地机与服务器之间远程传输文件</h1>
+                    <h1 class="description center-align post-title">python+bat实现由单个pdf生成多个pdf并合并</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/PyPDF2/">
+                                <span class="chip bg-color">PyPDF2</span>
+                            </a>
+                        
+                            <a href="/tags/doc/">
+                                <span class="chip bg-color">doc</span>
                             </a>
                         
                     </div>
@@ -456,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    241
+                    348
                 </div>
                 
 
@@ -476,31 +484,36 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="本地机与服务器之间远程传输文件"><a href="#本地机与服务器之间远程传输文件" class="headerlink" title="本地机与服务器之间远程传输文件"></a>本地机与服务器之间远程传输文件</h1><h2 id="本地机-rightarrow-服务器"><a href="#本地机-rightarrow-服务器" class="headerlink" title="本地机$\rightarrow$服务器"></a>本地机$\rightarrow$服务器</h2><p>上传文件命令:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> file_path_1 root@192.168.1.1:file_path_2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>参数说明:</p>
-<ul>
-<li><strong>file_path_1</strong>: 本地机文件的路径(相对，绝对都可)</li>
-<li><strong>root</strong>:服务器要登录的用户名</li>
-<li><strong>192.168.1.1</strong>:服务器ip地址</li>
-<li><strong>file_path_2</strong>: 上传到服务器上的路径</li>
-</ul>
-<p><strong>注意：</strong> 冒号后面的文件路径与”:”紧连 </p>
-<p>上传目录(整个文件夹)命令:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span>  -r file_path_1 root@192.168.1.1:file_path_2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="服务器-leftarrow-本地机"><a href="#服务器-leftarrow-本地机" class="headerlink" title="服务器$\leftarrow$本地机"></a>服务器$\leftarrow$本地机</h2><p>下载文件命令:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> root@192.168.1.1:file_path_2 file_path_1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>参数说明:</p>
-<ul>
-<li><strong>root</strong>:服务器要登录的用户名</li>
-<li><strong>192.168.1.1</strong>:服务器ip地址</li>
-<li><strong>file_path_2</strong>: 服务器上文件的路径</li>
-<li><strong>file_path_1</strong>: 下载到本地机时文件的路径(相对，绝对都可)</li>
-</ul>
-<p>同样加上 <strong>-r</strong> 参数也可以下载目录</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/eline2018/p/10369893.html">Linux 服务器之间文件传输</a></p>
-<p>[2] <a target="_blank" rel="noopener" href="https://xxx.com/">引用文章标题2</a></p>
-<p>[3] <a target="_blank" rel="noopener" href="https://xxx.com/">引用文章标题3</a></p>
+                <h1 id="python-bat实现由单个pdf生成多个pdf并合并"><a href="#python-bat实现由单个pdf生成多个pdf并合并" class="headerlink" title="python+bat实现由单个pdf生成多个pdf并合并"></a>python+bat实现由单个pdf生成多个pdf并合并</h1><h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>为了方便工作以及节省纸张，老爸提出要一张纸上打印多个重复的cad文件的部分区域。为了方便爸妈使用，所以自己利用python和windows批处理脚本来实现由一个pdf文件生成多个pdf文件并最终合并成1个文件。(家里的电脑系统还是xp,所以还得限制Python版本不能过高，这里选择3.3左右的版本)</p>
+<h2 id="PyPDF2模块介绍"><a href="#PyPDF2模块介绍" class="headerlink" title="PyPDF2模块介绍"></a>PyPDF2模块介绍</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/nilvya/article/details/103752817">链接</a></p>
+<h2 id="bat-脚本执行python文件"><a href="#bat-脚本执行python文件" class="headerlink" title="bat 脚本执行python文件"></a>bat 脚本执行python文件</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chang995196962/article/details/84578688">bat批处理执行python文件</a></p>
+<h2 id="python源码"><a href="#python源码" class="headerlink" title="python源码"></a>python源码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#待复制合并的源文件与代码处于同一路径下</span>
+<span class="token keyword">import</span> PyPDF2     
+<span class="token keyword">import</span> argparse
+<span class="token comment">#参数初始化</span>
+parser <span class="token operator">=</span> argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--name'</span><span class="token punctuation">,</span>
+                        <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span>
+                        <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"pdf name"</span><span class="token punctuation">,</span>
+                        default<span class="token operator">=</span><span class="token string">"每周学习报告.pdf"</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--num'</span><span class="token punctuation">,</span>
+                        <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span>
+                        <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"num"</span><span class="token punctuation">,</span>
+                        default<span class="token operator">=</span><span class="token string">"4"</span><span class="token punctuation">)</span>
+args <span class="token operator">=</span> parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+pdf1File <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span>     <span class="token comment"># 用二进制只读形式打开文件</span>
+pdf1Reader <span class="token operator">=</span> PyPDF2<span class="token punctuation">.</span>PdfFileReader<span class="token punctuation">(</span>pdf1File<span class="token punctuation">)</span>    <span class="token comment"># 获取内容对象</span>
+pdfWriter <span class="token operator">=</span> PyPDF2<span class="token punctuation">.</span>PdfFileWriter<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token comment"># 创建PDF写入对象</span>
+pageobj <span class="token operator">=</span> pdf1Reader<span class="token punctuation">.</span>getPage<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    pdfWriter<span class="token punctuation">.</span>addPage<span class="token punctuation">(</span>pageobj<span class="token punctuation">)</span>                 <span class="token comment"># addPage写入内容</span>
+
+pdfOutputFile <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.pdf'</span><span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span>   <span class="token comment"># 用二进制写入形式创建新的PDF文件</span>
+pdfWriter<span class="token punctuation">.</span>write<span class="token punctuation">(</span>pdfOutputFile<span class="token punctuation">)</span>              <span class="token comment"># 将pdfWriter中的内容写入新的PDF文件</span>
+pdfOutputFile<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+pdf1File<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://blog.csdn.net/nilvya/article/details/103752817">【Python军火库】PyPDF2：操纵PDF的利器</a><br>[2] <a target="_blank" rel="noopener" href="https://blog.csdn.net/chang995196962/article/details/84578688">bat批处理执行python 的几种方式 ———— 批处理， python打包成 exe文件</a></p>
 
                 
             </div>
@@ -527,7 +540,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/02/15/%E6%9C%AC%E5%9C%B0%E6%9C%BA%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E8%BF%9C%E7%A8%8B%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6/">http://example.com/2021/02/15/%E6%9C%AC%E5%9C%B0%E6%9C%BA%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E8%BF%9C%E7%A8%8B%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6/</a>
+                    <a href="http://example.com/2021/02/15/python+bat%E5%AE%9E%E7%8E%B0%E7%94%B1%E5%8D%95%E4%B8%AApdf%E7%94%9F%E6%88%90%E5%A4%9A%E4%B8%AApdf%E5%B9%B6%E5%90%88%E5%B9%B6/">http://example.com/2021/02/15/python+bat%E5%AE%9E%E7%8E%B0%E7%94%B1%E5%8D%95%E4%B8%AApdf%E7%94%9F%E6%88%90%E5%A4%9A%E4%B8%AApdf%E5%B9%B6%E5%90%88%E5%B9%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -565,8 +578,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/PyPDF2/">
+                                    <span class="chip bg-color">PyPDF2</span>
+                                </a>
+                            
+                                <a href="/tags/doc/">
+                                    <span class="chip bg-color">doc</span>
                                 </a>
                             
                         </div>
@@ -616,13 +637,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/02/15/python+bat%E5%AE%9E%E7%8E%B0%E7%94%B1%E5%8D%95%E4%B8%AApdf%E7%94%9F%E6%88%90%E5%A4%9A%E4%B8%AApdf%E5%B9%B6%E5%90%88%E5%B9%B6/">
+                <a href="/2021/02/16/gdb%E7%94%A8%E6%B3%95%E7%AE%80%E4%BB%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="python+bat实现由单个pdf生成多个pdf并合并">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="gdb用法简介">
                         
-                        <span class="card-title">python+bat实现由单个pdf生成多个pdf并合并</span>
+                        <span class="card-title">gdb用法简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -633,7 +654,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-16
                         </span>
                         <span class="publish-author">
                             
@@ -646,16 +667,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
-                    <a href="/tags/PyPDF2/">
-                        <span class="chip bg-color">PyPDF2</span>
+                    <a href="/tags/gdb/">
+                        <span class="chip bg-color">gdb</span>
                     </a>
                     
-                    <a href="/tags/doc/">
-                        <span class="chip bg-color">doc</span>
+                    <a href="/tags/debug/">
+                        <span class="chip bg-color">debug</span>
                     </a>
                     
                 </div>
@@ -669,13 +690,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/13/%E5%85%B3%E4%BA%8EOpenCV%E5%87%BD%E6%95%B0API%E6%96%87%E6%A1%A3%E9%83%A8%E5%88%86%E8%AF%B4%E6%98%8E%E7%9A%84%E7%90%86%E8%A7%A3/">
+                <a href="/2021/02/15/%E6%9C%AC%E5%9C%B0%E6%9C%BA%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E8%BF%9C%E7%A8%8B%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="关于OpenCV函数API文档部分说明的理解">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="本地机与服务器之间远程传输文件">
                         
-                        <span class="card-title">关于OpenCV函数API文档部分说明的理解</span>
+                        <span class="card-title">本地机与服务器之间远程传输文件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -686,7 +707,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-15
                             </span>
                         <span class="publish-author">
                             
@@ -699,12 +720,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/OpenCV/">
-                        <span class="chip bg-color">OpenCV</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">基础</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
@@ -835,13 +852,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
