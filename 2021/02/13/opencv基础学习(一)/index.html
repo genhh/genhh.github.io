@@ -468,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.2k
+                    4.9k
                 </div>
                 
 
@@ -490,6 +490,7 @@
             <div id="articleContent">
                 <h1 id="OpenCV基础学习"><a href="#OpenCV基础学习" class="headerlink" title="OpenCV基础学习"></a>OpenCV基础学习</h1><p>学习的是4.2.0版本的OpenCV,在这里只进行C++和python部分代码的实践。</p>
 <p><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.2.0/d9/df8/tutorial_root.html">学习链接</a></p>
+<p>没有标识(C++)表示该部分内容有C++和python两种语言实现。</p>
 <h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><h3 id="安装opencv环境-C"><a href="#安装opencv环境-C" class="headerlink" title="安装opencv环境(C++)"></a>安装opencv环境(C++)</h3><p>原本想着用docker中的opencv image,只不过没办法显示图像，只能单纯的运行无输出程序。所以无奈只能本地安装opencv</p>
 <p>一开始借鉴<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/118222087">知乎链接</a>，后来发现按照<a target="_blank" rel="noopener" href="https://docs.opencv.org/4.2.0/d7/d9f/tutorial_linux_install.html">官网教程</a>即可把opencv安装好且不需要额外下载内容(教程里一开始的依赖我都下载了)</p>
 <p><strong>注意:</strong> 在安装4.2.0之前貌似服务器上就已经装了opencv3.2.0的版本，在编译好之后才发现这个事情。后来发现opencv4X版本与opencv3x版本配置路径时有所不同，所以应该也是不影响的</p>
@@ -631,14 +632,115 @@ int main( int argc, char** argv )
 <li>YCrCb</li>
 <li>CIE L * a * b：通常用于测量给定颜色与另一种颜色的距离<h4 id="创建Mat对象"><a href="#创建Mat对象" class="headerlink" title="创建Mat对象"></a>创建Mat对象</h4></li>
 </ul>
-<h5 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h5><h5 id="其他openCV对象的输出"><a href="#其他openCV对象的输出" class="headerlink" title="其他openCV对象的输出"></a>其他openCV对象的输出</h5><h3 id="如何使用OpenCV扫描图像，查找表和时间测量"><a href="#如何使用OpenCV扫描图像，查找表和时间测量" class="headerlink" title="如何使用OpenCV扫描图像，查找表和时间测量"></a>如何使用OpenCV扫描图像，查找表和时间测量</h3><p>了解如何使用OpenCV扫描图像（遍历每个图像像素）</p>
+<p>类型指定约定:</p>
+<pre class="line-numbers language-none"><code class="language-none">CV_[比特位数][有符号或无符号][类型前缀]C[通道数]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="复制方法-元素复制"><a href="#复制方法-元素复制" class="headerlink" title="复制方法(元素复制)"></a>复制方法(元素复制)</h4><p>这里两个复制函数均是复制之后的变量完全独立，不存在共享数据。</p>
+<p><strong>cv::Mat::clone()</strong></p>
+<p><strong>cv::Mat::copyTo()</strong></p>
+<h5 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h5><h5 id="其他openCV对象的输出"><a href="#其他openCV对象的输出" class="headerlink" title="其他openCV对象的输出"></a>其他openCV对象的输出</h5><p>二维点</p>
+<p>三维点</p>
+<p>vector</p>
+<p>vector of point</p>
+<h3 id="如何使用OpenCV扫描图像，查找表和时间测量-C"><a href="#如何使用OpenCV扫描图像，查找表和时间测量-C" class="headerlink" title="如何使用OpenCV扫描图像，查找表和时间测量(C++)"></a>如何使用OpenCV扫描图像，查找表和时间测量(C++)</h3><p>了解如何使用OpenCV扫描图像（遍历每个图像像素）</p>
 <h3 id="对矩阵进行蒙版运算"><a href="#对矩阵进行蒙版运算" class="headerlink" title="对矩阵进行蒙版运算"></a>对矩阵进行蒙版运算</h3><p>了解如何使用邻居访问来扫描图像，并使用cv :: filter2D函数在图像上应用内核过滤器。</p>
+<p><strong>蒙版运算</strong>其实就是在原始图像上覆膜，或者可以理解为另一类的滤波操作，即提取特定的元素</p>
+<p>所以问题来了，<em>mask矩阵和滤波器核有什么区别呢？</em>–貌似没啥区别</p>
+<p>这里官方的教程个人感觉更偏滤波一些。而且其python的代码风格也有C++非常类似,举的例子也是锐化图像的例子:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function
+<span class="token keyword">import</span> sys
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> cv2 <span class="token keyword">as</span> cv
+<span class="token keyword">def</span> <span class="token function">is_grayscale</span><span class="token punctuation">(</span>my_image<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment">#判断是否是灰度图</span>
+    <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>my_image<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">3</span>
+<span class="token keyword">def</span> <span class="token function">saturated</span><span class="token punctuation">(</span>sum_value<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment">#保证计算后的值范围在0-255之间</span>
+    <span class="token keyword">if</span> sum_value <span class="token operator">></span> <span class="token number">255</span><span class="token punctuation">:</span>
+        sum_value <span class="token operator">=</span> <span class="token number">255</span>
+    <span class="token keyword">if</span> sum_value <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        sum_value <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">return</span> sum_value
+<span class="token keyword">def</span> <span class="token function">sharpen</span><span class="token punctuation">(</span>my_image<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> is_grayscale<span class="token punctuation">(</span>my_image<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        height<span class="token punctuation">,</span> width <span class="token operator">=</span> my_image<span class="token punctuation">.</span>shape
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        my_image <span class="token operator">=</span> cv<span class="token punctuation">.</span>cvtColor<span class="token punctuation">(</span>my_image<span class="token punctuation">,</span> cv<span class="token punctuation">.</span>CV_8U<span class="token punctuation">)</span>
+        height<span class="token punctuation">,</span> width<span class="token punctuation">,</span> n_channels <span class="token operator">=</span> my_image<span class="token punctuation">.</span>shape
+    result <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span>my_image<span class="token punctuation">.</span>shape<span class="token punctuation">,</span> my_image<span class="token punctuation">.</span>dtype<span class="token punctuation">)</span>
+    <span class="token comment">#滤波操作</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> height <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> width <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> is_grayscale<span class="token punctuation">(</span>my_image<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                sum_value <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">*</span> my_image<span class="token punctuation">[</span>j<span class="token punctuation">,</span> i<span class="token punctuation">]</span> <span class="token operator">-</span> my_image<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token punctuation">]</span> <span class="token operator">-</span> my_image<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token punctuation">]</span> \
+                            <span class="token operator">-</span> my_image<span class="token punctuation">[</span>j<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> my_image<span class="token punctuation">[</span>j<span class="token punctuation">,</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+                result<span class="token punctuation">[</span>j<span class="token punctuation">,</span> i<span class="token punctuation">]</span> <span class="token operator">=</span> saturated<span class="token punctuation">(</span>sum_value<span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n_channels<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    sum_value <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">*</span> my_image<span class="token punctuation">[</span>j<span class="token punctuation">,</span> i<span class="token punctuation">,</span> k<span class="token punctuation">]</span> <span class="token operator">-</span> my_image<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> k<span class="token punctuation">]</span>  \
+                                <span class="token operator">-</span> my_image<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> k<span class="token punctuation">]</span> <span class="token operator">-</span> my_image<span class="token punctuation">[</span>j<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> k<span class="token punctuation">]</span>\
+                                <span class="token operator">-</span> my_image<span class="token punctuation">[</span>j<span class="token punctuation">,</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> k<span class="token punctuation">]</span>
+                    result<span class="token punctuation">[</span>j<span class="token punctuation">,</span> i<span class="token punctuation">,</span> k<span class="token punctuation">]</span> <span class="token operator">=</span> saturated<span class="token punctuation">(</span>sum_value<span class="token punctuation">)</span>
+    
+    <span class="token keyword">return</span> result
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>argv<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    filename <span class="token operator">=</span> <span class="token string">'lena.jpg'</span>
+    img_codec <span class="token operator">=</span> cv<span class="token punctuation">.</span>IMREAD_COLOR
+    <span class="token keyword">if</span> argv<span class="token punctuation">:</span>
+        filename <span class="token operator">=</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>argv<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2</span> <span class="token keyword">and</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"G"</span><span class="token punctuation">:</span>
+            img_codec <span class="token operator">=</span> cv<span class="token punctuation">.</span>IMREAD_GRAYSCALE
+    src <span class="token operator">=</span> cv<span class="token punctuation">.</span>imread<span class="token punctuation">(</span>cv<span class="token punctuation">.</span>samples<span class="token punctuation">.</span>findFile<span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">,</span> img_codec<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> src <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Can't open image ["</span> <span class="token operator">+</span> filename <span class="token operator">+</span> <span class="token string">"]"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Usage:"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"mat_mask_operations.py [image_path -- default lena.jpg] [G -- grayscale]"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+    cv<span class="token punctuation">.</span>namedWindow<span class="token punctuation">(</span><span class="token string">"Input"</span><span class="token punctuation">,</span> cv<span class="token punctuation">.</span>WINDOW_AUTOSIZE<span class="token punctuation">)</span>
+    cv<span class="token punctuation">.</span>namedWindow<span class="token punctuation">(</span><span class="token string">"Output"</span><span class="token punctuation">,</span> cv<span class="token punctuation">.</span>WINDOW_AUTOSIZE<span class="token punctuation">)</span>
+    cv<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">"Input"</span><span class="token punctuation">,</span> src<span class="token punctuation">)</span>
+    t <span class="token operator">=</span> <span class="token builtin">round</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    dst0 <span class="token operator">=</span> sharpen<span class="token punctuation">(</span>src<span class="token punctuation">)</span>
+    t <span class="token operator">=</span> <span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> t<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hand written function time passed in seconds: %s"</span> <span class="token operator">%</span> t<span class="token punctuation">)</span>
+    cv<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">"Output"</span><span class="token punctuation">,</span> dst0<span class="token punctuation">)</span>
+    cv<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    t <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    kernel <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>  <span class="token comment"># kernel should be floating point type</span>
+    
+    dst1 <span class="token operator">=</span> cv<span class="token punctuation">.</span>filter2D<span class="token punctuation">(</span>src<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> kernel<span class="token punctuation">)</span>
+    <span class="token comment"># ddepth = -1, means destination image has depth same as input image</span>
+    
+    t <span class="token operator">=</span> <span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> t<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Built-in filter2D time passed in seconds:     %s"</span> <span class="token operator">%</span> t<span class="token punctuation">)</span>
+    cv<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">"Output"</span><span class="token punctuation">,</span> dst1<span class="token punctuation">)</span>
+    cv<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    cv<span class="token punctuation">.</span>destroyAllWindows<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token number">0</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中的锐化操作可以用 <strong>filter2D()</strong> 来简化，主体内容简化后内容类似下面:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#import的库与上面的代码相同</span>
+src <span class="token operator">=</span> cv<span class="token punctuation">.</span>imread<span class="token punctuation">(</span><span class="token string">"test.jpg"</span><span class="token punctuation">)</span>
+kernel <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
+
+dst1 <span class="token operator">=</span> cv<span class="token punctuation">.</span>filter2D<span class="token punctuation">(</span>src<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> kernel<span class="token punctuation">)</span><span class="token comment">#input image, depth, kerne(卷积核)</span>
+cv<span class="token punctuation">.</span>namedWindow<span class="token punctuation">(</span><span class="token string">"Input"</span><span class="token punctuation">,</span> cv<span class="token punctuation">.</span>WINDOW_AUTOSIZE<span class="token punctuation">)</span>
+cv<span class="token punctuation">.</span>namedWindow<span class="token punctuation">(</span><span class="token string">"Output"</span><span class="token punctuation">,</span> cv<span class="token punctuation">.</span>WINDOW_AUTOSIZE<span class="token punctuation">)</span>
+cv<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">"Input"</span><span class="token punctuation">,</span> src<span class="token punctuation">)</span>
+cv<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">"Output"</span><span class="token punctuation">,</span> dst1<span class="token punctuation">)</span>
+cv<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+cv<span class="token punctuation">.</span>destroyAllWindows<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># ddepth = -1, means destination image has depth same asinput image</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="图像操作"><a href="#图像操作" class="headerlink" title="图像操作"></a>图像操作</h3><p>从文件读取/写入图像，访问像素，原始操作，可视化图像。</p>
 <h3 id="使用OpenCV添加（混合）两个图像"><a href="#使用OpenCV添加（混合）两个图像" class="headerlink" title="使用OpenCV添加（混合）两个图像"></a>使用OpenCV添加（混合）两个图像</h3><p>将学习如何融合两个图像！</p>
 <h3 id="改变图像的对比度和亮度！"><a href="#改变图像的对比度和亮度！" class="headerlink" title="改变图像的对比度和亮度！"></a>改变图像的对比度和亮度！</h3><p>将学习如何更改图像外观！</p>
 <h3 id="离散傅立叶变换"><a href="#离散傅立叶变换" class="headerlink" title="离散傅立叶变换"></a>离散傅立叶变换</h3><p>了解如何以及为什么在OpenCV中使用离散傅立叶变换</p>
 <h3 id="使用XML和YAML文件的文件输入和输出"><a href="#使用XML和YAML文件的文件输入和输出" class="headerlink" title="使用XML和YAML文件的文件输入和输出"></a>使用XML和YAML文件的文件输入和输出</h3><p>如何使用OpenCV的cv :: FileStorage数据结构将数据写入和读取XML或YAML文件格式</p>
-<h3 id="如何使用OpenCV-parallel-for-并行化代码"><a href="#如何使用OpenCV-parallel-for-并行化代码" class="headerlink" title="如何使用OpenCV parallel_for_并行化代码"></a>如何使用OpenCV parallel_for_并行化代码</h3><p>如何使用OpenCV parallel_for_轻松并行化代码。</p>
+<h3 id="如何使用OpenCV-parallel-for-并行化代码-C"><a href="#如何使用OpenCV-parallel-for-并行化代码-C" class="headerlink" title="如何使用OpenCV parallel_for_并行化代码(C++)"></a>如何使用OpenCV parallel_for_并行化代码(C++)</h3><p>如何使用OpenCV parallel_for_轻松并行化代码。</p>
 <h2 id="三、图像处理"><a href="#三、图像处理" class="headerlink" title="三、图像处理"></a>三、图像处理</h2><p>了解OpenCV内部的图像处理（操作）功能。</p>
 <h3 id="1基本图纸"><a href="#1基本图纸" class="headerlink" title="1基本图纸"></a>1基本图纸</h3><p>学习如何使用OpenCV绘制简单的几何图形</p>
 <h3 id="2带有OpenCV的随机生成器和文本"><a href="#2带有OpenCV的随机生成器和文本" class="headerlink" title="2带有OpenCV的随机生成器和文本"></a>2带有OpenCV的随机生成器和文本</h3><p>使用OpenCV绘制一些精美的东西</p>
@@ -1142,7 +1244,7 @@ int main( int argc, char** argv )
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.9k</span>&nbsp;字
+                class="white-color">8.6k</span>&nbsp;字
             
             
             
