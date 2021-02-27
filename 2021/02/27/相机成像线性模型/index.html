@@ -459,7 +459,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.3k
+                    1.2k
                 </div>
                 
 
@@ -487,24 +487,34 @@
 <h3 id="二维成像平面坐标系"><a href="#二维成像平面坐标系" class="headerlink" title="二维成像平面坐标系"></a>二维成像平面坐标系</h3><p>表示图像物理位置的坐标系，在<strong>图像坐标系</strong>的基础上乘以<strong>每像素的物理尺寸</strong>，然后再<strong>加上</strong>原点的偏移量即可。其坐标系坐标点表示为$(x,y)$</p>
 <p><img src="/2021/02/27/%E7%9B%B8%E6%9C%BA%E6%88%90%E5%83%8F%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/uv2xy.png" alt="图像坐标系与成像平面坐标系"></p>
 <p>图像坐标系与成像平面坐标系之间的转换关系如下所示:</p>
-<p>$$<br>\left[\begin{array}{l}u \ v \ 1\end{array}\right]=\left[\begin{array}{ccc}1 / d x &amp; 0 &amp; u_{0} \ 0 &amp; 1 / d y &amp; v_{0} \ 0 &amp; 0 &amp; 1\end{array}\right]\left[\begin{array}{l}x \ y \ 1\end{array}\right]<br>$$</p>
-<p>其中$u_0,v_0$表示原点分别在列方向，行方向的偏移量。如果按上面图片中的理想状态，则满足$u_0=\frac{w}{2},v_0=\frac{h}{2}$。其中$w,h$为图像的宽，高。</p>
+<script type="math/tex; mode=display">
+\left[\begin{array}{l}u \\ v \\ 1\end{array}\right]=\left[\begin{array}{ccc}1 / d x & 0 & u_{0} \\ 0 & 1 / d y & v_{0} \\ 0 & 0 & 1\end{array}\right]\left[\begin{array}{l}x \\ y \\ 1\end{array}\right]</script><p>其中$u_0,v_0$表示原点分别在列方向，行方向的偏移量。如果按上面图片中的理想状态，则满足$u_0=\frac{w}{2},v_0=\frac{h}{2}$。其中$w,h$为图像的宽，高。</p>
 <p>$d_x,d_y$分别为x,y方向上每像素的物理尺寸。</p>
 <h3 id="三维相机坐标系"><a href="#三维相机坐标系" class="headerlink" title="三维相机坐标系"></a>三维相机坐标系</h3><p>其坐标系中的点表示为$(x_c,y_c,z_c)$,其中深度$Z_c$为相机原点距世界坐标系下实物原点的距离。</p>
 <p>成像平面坐标系与相机坐标系之间的转换关系推导:</p>
 <p><img src="/2021/02/27/%E7%9B%B8%E6%9C%BA%E6%88%90%E5%83%8F%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/xy2xcyc.png" alt="中心透视模型"></p>
 <p>根据上图，我们可以得到如下关系:</p>
-<p>$$<br>\left{\begin{array}{l}x=f \frac{x_{c}}{z_{c}} \ y=f \frac{y_{c}}{z_{c}}\end{array}\right.<br>$$</p>
-<p>可以得到投影矩阵(即成像平面与相机坐标系之间的坐标的关系):<br>$$<br>z_{c}\left[\begin{array}{l}x \ y \ 1\end{array}\right]=\left[\begin{array}{lll}f &amp; 0 &amp; 0  \ 0 &amp; f &amp; 0  \ 0 &amp; 0 &amp; 1 \end{array}\right]\left[\begin{array}{c}x_{c} \ y_{c} \ z_{c} \end{array}\right]<br>$$</p>
-<h3 id="三维世界坐标系"><a href="#三维世界坐标系" class="headerlink" title="三维世界坐标系"></a>三维世界坐标系</h3><p>用来描述物体和物体(相机)之间的相对位置关系。定义其坐标系为$(O-X_WY_WZ_W)$,其坐标系下的坐标点为$(x_w,y_w,z_w)$</p>
+<script type="math/tex; mode=display">
+\left\{\begin{array}{l}x=f \frac{x_{c}}{z_{c}} \\ y=f \frac{y_{c}}{z_{c}}\end{array}\right.</script><p>可以得到投影矩阵(即成像平面与相机坐标系之间的坐标的关系):</p>
+<script type="math/tex; mode=display">
+z_{c}\left[\begin{array}{l}x \\ y \\ 1\end{array}\right]=\left[\begin{array}{lll}f & 0 & 0  \\ 0 & f & 0  \\ 0 & 0 & 1 \end{array}\right]\left[\begin{array}{c}x_{c} \\ y_{c} \\ z_{c} \end{array}\right]</script><h3 id="三维世界坐标系"><a href="#三维世界坐标系" class="headerlink" title="三维世界坐标系"></a>三维世界坐标系</h3><p>用来描述物体和物体(相机)之间的相对位置关系。定义其坐标系为$(O-X_WY_WZ_W)$,其坐标系下的坐标点为$(x_w,y_w,z_w)$</p>
 <p>世界坐标系与相机坐标系之间的坐标的关系如下所示:</p>
-<p>$$<br>\left[\begin{array}{c}X_{C} \ Y_{C} \ Z_{C} \ 1\end{array}\right]=\left[\begin{array}{cc}R &amp; t \ 0^{T} &amp; 1\end{array}\right]\left[\begin{array}{c}X_{W} \ Y_{W} \ Z_{W} \ 1\end{array}\right]<br>$$</p>
-<p>其中$\left[\begin{array}{cc}R &amp; t \ 0^{T} &amp; 1\end{array}\right]$可以简单表示为$M$(外参矩阵),$t=(t_1,t_2,t_3)^T是平移矩阵$，$R$是$3\times 3$的正交单位矩阵。</p>
-<h2 id="图像坐标系于世界坐标系之间的转换关系"><a href="#图像坐标系于世界坐标系之间的转换关系" class="headerlink" title="图像坐标系于世界坐标系之间的转换关系"></a>图像坐标系于世界坐标系之间的转换关系</h2><p>根据上面各个坐标系之间的转换，我们可以得到图像坐标系与世界坐标系之间的转换关系。<br>$$</p>
-<p>\begin{aligned}<br>\left[\begin{array}{l}u \ v \ 1\end{array}\right] &amp;= \left[\begin{array}{ccc}1 / d x &amp; 0 &amp; u_{0} \ 0 &amp; 1 / d y &amp; v_{0} \ 0 &amp; 0 &amp; 1\end{array}\right]\left[\begin{array}{l}x \ y \ 1\end{array}\right]</p>
-<p>\ &amp;= \frac{1}{z_{c}} \left[\begin{array}{ccc}1 / d x &amp; 0 &amp; u_{0} \ 0 &amp; 1 / d y &amp; v_{0} \ 0 &amp; 0 &amp; 1\end{array}\right]\left[\begin{array}{lll}f &amp; 0 &amp; 0  \ 0 &amp; f &amp; 0  \ 0 &amp; 0 &amp; 1 \end{array}\right]\left[\begin{array}{c}x_{c} \ y_{c} \ z_{c} \end{array}\right] \<br>&amp;=\frac{1}{z_{c}} \left[\begin{array}{ccc}1 / d x &amp; 0 &amp; u_{0} \ 0 &amp; 1 / d y &amp; v_{0} \ 0 &amp; 0 &amp; 1\end{array}\right]\left[\begin{array}{lll}f &amp; 0 &amp; 0  \ 0 &amp; f &amp; 0  \ 0 &amp; 0 &amp; 1 \end{array}\right]\left[\begin{array}{cc}R &amp; t \end{array}\right]\left[\begin{array}{c}x_{w} \ y_{w} \ z_{w}\end{array}\right]<br>\<br>&amp;=\frac{1}{z_{c}} \left[\begin{array}{ccc}f / d x &amp; 0 &amp; u_{0} \ 0 &amp; f_ / d y &amp; v_{0} \ 0 &amp; 0 &amp; 1\end{array}\right]\left[\begin{array}{cc}R &amp; t \end{array}\right]\left[\begin{array}{c}x_{w} \ y_{w} \ z_{w}\end{array}\right]<br>\<br>&amp;=\frac{1}{z_{c}} A M\left[\begin{array}{c}x_{w} \ y_{w} \ z_{w}\end{array}\right]<br>\end{aligned}<br>$$</p>
-<p>其中A为相机内参矩阵，M称为相机外参矩阵</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CMFD&dbname=CMFD201402&filename=1014176311.nh&v=W%25mmd2BWq5rRdbITnF4LKzt9zgRxMsjcq8kv77W2Zjx0aUFvIRheJgze92kGfGIcskSkF">舒娜. 摄像机标定方法的研究[D].南京理工大学,2014.</a></p>
+<script type="math/tex; mode=display">
+\left[\begin{array}{c}X_{C} \\ Y_{C} \\ Z_{C} \\ 1\end{array}\right]=\left[\begin{array}{cc}R & t \\ 0^{T} & 1\end{array}\right]\left[\begin{array}{c}X_{W} \\ Y_{W} \\ Z_{W} \\ 1\end{array}\right]</script><p>其中$\left[\begin{array}{cc}R &amp; t \ 0^{T} &amp; 1\end{array}\right]$可以简单表示为$M$(外参矩阵),$t=(t_1,t_2,t_3)^T是平移矩阵$，$R$是$3\times 3$的正交单位矩阵。</p>
+<h2 id="图像坐标系于世界坐标系之间的转换关系"><a href="#图像坐标系于世界坐标系之间的转换关系" class="headerlink" title="图像坐标系于世界坐标系之间的转换关系"></a>图像坐标系于世界坐标系之间的转换关系</h2><p>根据上面各个坐标系之间的转换，我们可以得到图像坐标系与世界坐标系之间的转换关系。</p>
+<script type="math/tex; mode=display">
+
+\begin{aligned}
+\left[\begin{array}{l}u \\ v \\ 1\end{array}\right] &= \left[\begin{array}{ccc}1 / d x & 0 & u_{0} \\ 0 & 1 / d y & v_{0} \\ 0 & 0 & 1\end{array}\right]\left[\begin{array}{l}x \\ y \\ 1\end{array}\right]
+
+\\ &= \frac{1}{z_{c}} \left[\begin{array}{ccc}1 / d x & 0 & u_{0} \\ 0 & 1 / d y & v_{0} \\ 0 & 0 & 1\end{array}\right]\left[\begin{array}{lll}f & 0 & 0  \\ 0 & f & 0  \\ 0 & 0 & 1 \end{array}\right]\left[\begin{array}{c}x_{c} \\ y_{c} \\ z_{c} \end{array}\right] \\
+&=\frac{1}{z_{c}} \left[\begin{array}{ccc}1 / d x & 0 & u_{0} \\ 0 & 1 / d y & v_{0} \\ 0 & 0 & 1\end{array}\right]\left[\begin{array}{lll}f & 0 & 0  \\ 0 & f & 0  \\ 0 & 0 & 1 \end{array}\right]\left[\begin{array}{cc}R & t \end{array}\right]\left[\begin{array}{c}x_{w} \\ y_{w} \\ z_{w}\end{array}\right]
+\\
+&=\frac{1}{z_{c}} \left[\begin{array}{ccc}f / d x & 0 & u_{0} \\ 0 & f_ / d y & v_{0} \\ 0 & 0 & 1\end{array}\right]\left[\begin{array}{cc}R & t \end{array}\right]\left[\begin{array}{c}x_{w} \\ y_{w} \\ z_{w}\end{array}\right]
+\\
+&=\frac{1}{z_{c}} A M\left[\begin{array}{c}x_{w} \\ y_{w} \\ z_{w}\end{array}\right]
+\end{aligned}</script><p>其中A为相机内参矩阵，M称为相机外参矩阵</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CMFD&amp;dbname=CMFD201402&amp;filename=1014176311.nh&amp;v=W%25mmd2BWq5rRdbITnF4LKzt9zgRxMsjcq8kv77W2Zjx0aUFvIRheJgze92kGfGIcskSkF">舒娜. 摄像机标定方法的研究[D].南京理工大学,2014.</a></p>
 
                 
             </div>
@@ -697,16 +707,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
-                    </a>
-                    
                     <a href="/tags/gdb/">
                         <span class="chip bg-color">gdb</span>
                     </a>
                     
                     <a href="/tags/debug/">
                         <span class="chip bg-color">debug</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
@@ -916,7 +926,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.9k</span>&nbsp;字
+                class="white-color">9.8k</span>&nbsp;字
             
             
             

@@ -434,20 +434,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
+                            <a href="/tags/%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">基础</span>
                             </a>
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
                             </a>
                         
                             <a href="/tags/OpenCV/">
                                 <span class="chip bg-color">OpenCV</span>
                             </a>
                         
-                            <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">基础</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -502,55 +502,36 @@
 <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> cmake <span class="token function">git</span> libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
 <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="2获取源码"><a href="#2获取源码" class="headerlink" title="2获取源码"></a>2获取源码</h4><p>这个知乎教程和官网里面都有，我就不贴了</p>
-<h4 id="3编译opencv"><a href="#3编译opencv" class="headerlink" title="3编译opencv"></a>3编译opencv</h4><p>首先把opencv_contrib和opencv文件夹解压，然后把opencv_contrib复制到opencv文件夹下。<br>然后再在opencv文件夹下新建build文件夹，然后切换到build文件夹下<br>运行以下命令:</p>
-<pre class="line-numbers language-none"><code class="language-none">cmake -D CMAKE_BUILD_TYPE&#x3D;Release -D CMAKE_INSTALL_PREFIX&#x3D;&#x2F;usr&#x2F;local .. OPENCV_GENERATE_PKGCONFIG&#x3D;ON<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>没有效果的话就运行下面这条:</p>
-<pre class="line-numbers language-none"><code class="language-none">cmake -DCMAKE_BUILD_TYPE&#x3D;Release -DCMAKE_INSTALL_PREFIX&#x3D;&#x2F;usr&#x2F;local .. OPENCV_GENERATE_PKGCONFIG&#x3D;ON<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后继续在build目录下运行:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">make</span> -j7 <span class="token comment">#数字可以根据自己的电脑性能适度调整</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>至此opencv安装完毕，下面配置路径</p>
-<h4 id="4配置路径"><a href="#4配置路径" class="headerlink" title="4配置路径"></a>4配置路径</h4><p>先在/etc/ld.so.conf.d/文件夹下新建一个opencv4.conf，里面写入/usr/local/lib。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /etc/ld.so.conf.d/
+<h4 id="3编译opencv"><a href="#3编译opencv" class="headerlink" title="3编译opencv"></a>3编译opencv</h4><p>首先把opencv_contrib和opencv文件夹解压，然后把opencv_contrib复制到opencv文件夹下。<br>然后再在opencv文件夹下新建build文件夹，然后切换到build文件夹下<br>运行以下命令:<br><pre class="line-numbers language-none"><code class="language-none">cmake -D CMAKE_BUILD_TYPE&#x3D;Release -D CMAKE_INSTALL_PREFIX&#x3D;&#x2F;usr&#x2F;local .. OPENCV_GENERATE_PKGCONFIG&#x3D;ON<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>没有效果的话就运行下面这条:<br><pre class="line-numbers language-none"><code class="language-none">cmake -DCMAKE_BUILD_TYPE&#x3D;Release -DCMAKE_INSTALL_PREFIX&#x3D;&#x2F;usr&#x2F;local .. OPENCV_GENERATE_PKGCONFIG&#x3D;ON<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>然后继续在build目录下运行:<br><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">make</span> -j7 <span class="token comment">#数字可以根据自己的电脑性能适度调整</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>至此opencv安装完毕，下面配置路径</p>
+<h4 id="4配置路径"><a href="#4配置路径" class="headerlink" title="4配置路径"></a>4配置路径</h4><p>先在/etc/ld.so.conf.d/文件夹下新建一个opencv4.conf，里面写入/usr/local/lib。<br><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /etc/ld.so.conf.d/
 <span class="token function">sudo</span> <span class="token function">touch</span> opencv4.conf
 <span class="token function">sudo</span> <span class="token function">sh</span> -c <span class="token string">'echo "/usr/local/lib" > opencv4.conf'</span>
 <span class="token comment">#更新pkg-config</span>
-<span class="token function">sudo</span> ldconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后运行以下命令检测是否安装成功</p>
+<span class="token function">sudo</span> ldconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>然后运行以下命令检测是否安装成功</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pkg-config --modversion opencv4 <span class="token comment">#其他版本没有尾后数字  </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="/2021/02/13/opencv%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0(%E4%B8%80)/version_show.png" alt="安装成功"></p>
-<p>运行<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44741023/article/details/89604104">测试</a>实例然后就成功了</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#原路径在build文件夹时</span>
+<p>运行<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44741023/article/details/89604104">测试</a>实例然后就成功了<br><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#原路径在build文件夹时</span>
 $ <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/samples/cpp/example_cmake
 $ cmake <span class="token builtin class-name">.</span>
 $ <span class="token function">make</span>
-$ ./opencv_example<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2021/02/13/opencv%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0(%E4%B8%80)/install.png" alt="测试结果"></p>
-<h3 id="安装opencv环境-Python"><a href="#安装opencv环境-Python" class="headerlink" title="安装opencv环境(Python)"></a>安装opencv环境(Python)</h3><p>这个比较简单，在anaconda环境下随便创建个虚拟环境，然后运行下面指令就可以了(其实前面安装好之后本地python也就可以调用cv2，只不过为了本地环境的安全，再新创一个虚拟环境进行python版本的安装)</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">pip install opencv<span class="token operator">-</span>python<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+$ ./opencv_example<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><br><img src="/2021/02/13/opencv%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0(%E4%B8%80)/install.png" alt="测试结果"></p>
+<h3 id="安装opencv环境-Python"><a href="#安装opencv环境-Python" class="headerlink" title="安装opencv环境(Python)"></a>安装opencv环境(Python)</h3><p>这个比较简单，在anaconda环境下随便创建个虚拟环境，然后运行下面指令就可以了(其实前面安装好之后本地python也就可以调用cv2，只不过为了本地环境的安全，再新创一个虚拟环境进行python版本的安装)<br><pre class="line-numbers language-python" data-language="python"><code class="language-python">pip install opencv<span class="token operator">-</span>python<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 <h2 id="一、简单入门"><a href="#一、简单入门" class="headerlink" title="一、简单入门"></a>一、简单入门</h2><h3 id="使用gcc和cMake编译opencv代码-C"><a href="#使用gcc和cMake编译opencv代码-C" class="headerlink" title="使用gcc和cMake编译opencv代码(C++)"></a>使用gcc和cMake编译opencv代码(C++)</h3><p>在对着<a target="_blank" rel="noopener" href="https://docs.opencv.org/4.2.0/db/df5/tutorial_linux_gcc_cmake.html">教程</a>把相关代码配置好后，前面都很顺利，在<strong>make</strong>时却发生了意外报错。</p>
-<p>由于报错信息太多，一开始有点不知道从何下手，所以在折腾了半天之后在网上搜寻能够保存make报错日志的相关<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/32236925">命令</a>:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">make<span class="token operator">></span>make.log<span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>参数解释：</p>
+<p>由于报错信息太多，一开始有点不知道从何下手，所以在折腾了半天之后在网上搜寻能够保存make报错日志的相关<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/32236925">命令</a>:<br><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">make<span class="token operator">></span>make.log<span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>参数解释：</p>
 <ul>
 <li>2: stderr</li>
 <li>1: stdout</li>
 <li>make.log:要生成的日志文件</li>
 </ul>
 <p>大致意思就是把make报错的信息传输到生成的<strong>make.log</strong>文件中。</p>
-<p>然后秉承着<strong>先解决最先报的错</strong>的原则，我们先解决第一个错误:</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">error: &quot;OpenCV&quot; 4.x+ requires enabled c++11 support<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后根据网上的<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38096703/article/details/106001663">相关解答</a>，我在<strong>CMakeList.txt</strong>文件中首行添加了一行代码，修改后的CmakeList.txt文件内容如下所示:</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">set( CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; -g -fPIC -O3 -std&#x3D;c++11 -fopenmp&quot;)
+<p>然后秉承着<strong>先解决最先报的错</strong>的原则，我们先解决第一个错误:<br><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">error: &quot;OpenCV&quot; 4.x+ requires enabled c++11 support<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>然后根据网上的<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38096703/article/details/106001663">相关解答</a>，我在<strong>CMakeList.txt</strong>文件中首行添加了一行代码，修改后的CmakeList.txt文件内容如下所示:<br><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">set( CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; -g -fPIC -O3 -std&#x3D;c++11 -fopenmp&quot;)
 cmake_minimum_required(VERSION 2.8)
 project( DisplayImage )
 find_package( OpenCV REQUIRED )
 include_directories( $&#123;OpenCV_INCLUDE_DIRS&#125; )
 add_executable( DisplayImage DisplayImage.cpp )
-target_link_libraries( DisplayImage $&#123;OpenCV_LIBS&#125; )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>再次执行cmake,然后执行make,终于编译成功.最后经测试成功显示图像。</p>
-<p>源码解读:</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;stdio.h&gt;
+target_link_libraries( DisplayImage $&#123;OpenCV_LIBS&#125; )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>再次执行cmake,然后执行make,终于编译成功.最后经测试成功显示图像。</p>
+<p>源码解读:<br><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;stdio.h&gt;
 #include &lt;opencv2&#x2F;opencv.hpp&gt;
 using namespace cv;
 int main(int argc, char** argv )
@@ -571,9 +552,8 @@ int main(int argc, char** argv )
     imshow(&quot;Display Image&quot;, image);
     waitKey(0);
     return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="显示图像-C"><a href="#显示图像-C" class="headerlink" title="显示图像(C++)"></a>显示图像(C++)</h3><p>源码:</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;opencv2&#x2F;core.hpp&gt; &#x2F;&#x2F;核心，基本操作库
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+<h3 id="显示图像-C"><a href="#显示图像-C" class="headerlink" title="显示图像(C++)"></a>显示图像(C++)</h3><p>源码:<br><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;opencv2&#x2F;core.hpp&gt; &#x2F;&#x2F;核心，基本操作库
 #include &lt;opencv2&#x2F;imgcodecs.hpp&gt;
 #include &lt;opencv2&#x2F;highgui.hpp&gt; &#x2F;&#x2F;包含输入输出的功能
 #include &lt;iostream&gt;
@@ -597,11 +577,9 @@ int main( int argc, char** argv )
     imshow( &quot;Display window&quot;, image );&#x2F;&#x2F;显示图片
     waitKey(0); &#x2F;&#x2F; 等待窗口关闭
     return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>其他和文件和上一节的一致</p>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>其他和文件和上一节的一致</p>
 <h3 id="修改和保存图像-C"><a href="#修改和保存图像-C" class="headerlink" title="修改和保存图像(C++)"></a>修改和保存图像(C++)</h3><p>主要就是学习<strong>cv::imread</strong>,<strong>cv::imwrite</strong>,<strong>cv::cvrColor</strong>这三个函数，和python里面的函数功能一致。分别是读取文件，保存文件，转换颜色空间。</p>
-<p>源码</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;opencv2&#x2F;opencv.hpp&gt;
+<p>源码<br><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;opencv2&#x2F;opencv.hpp&gt;
 using namespace cv;
 int main( int argc, char** argv )
 &#123;
@@ -622,7 +600,7 @@ int main( int argc, char** argv )
  imshow( &quot;Gray image&quot;, gray_image );
  waitKey(0);
  return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
 <h2 id="二、核心功能"><a href="#二、核心功能" class="headerlink" title="二、核心功能"></a>二、核心功能</h2><p>学习基本构造功能，以及如何在像素级别上操作图像</p>
 <h3 id="Mat-基本图像容器-C"><a href="#Mat-基本图像容器-C" class="headerlink" title="Mat-基本图像容器(C++)"></a>Mat-基本图像容器(C++)</h3><p>学习如何将图像存储在内存中以及如何将其内容打印到控制台</p>
 <h4 id="Mat介绍"><a href="#Mat介绍" class="headerlink" title="Mat介绍"></a>Mat介绍</h4><p>需要了解Mat的第一件事是，不需要手动分配其内存并在不需要时立即释放它。</p>
@@ -633,10 +611,9 @@ int main( int argc, char** argv )
 <li>RGB(A)</li>
 <li>HSV 和 HLS :描述颜色的更自然的方式</li>
 <li>YCrCb</li>
-<li>CIE L * a * b：通常用于测量给定颜色与另一种颜色的距离<h4 id="创建Mat对象"><a href="#创建Mat对象" class="headerlink" title="创建Mat对象"></a>创建Mat对象</h4></li>
+<li>CIE L <em> a </em> b：通常用于测量给定颜色与另一种颜色的距离<h4 id="创建Mat对象"><a href="#创建Mat对象" class="headerlink" title="创建Mat对象"></a>创建Mat对象</h4></li>
 </ul>
-<p>类型指定约定:</p>
-<pre class="line-numbers language-none"><code class="language-none">CV_[比特位数][有符号或无符号][类型前缀]C[通道数]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>类型指定约定:<br><pre class="line-numbers language-none"><code class="language-none">CV_[比特位数][有符号或无符号][类型前缀]C[通道数]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 <h4 id="复制方法-元素复制"><a href="#复制方法-元素复制" class="headerlink" title="复制方法(元素复制)"></a>复制方法(元素复制)</h4><p>这里两个复制函数均是复制之后的变量完全独立，不存在共享数据。</p>
 <p><strong>cv::Mat::clone()</strong></p>
 <p><strong>cv::Mat::copyTo()</strong></p>
@@ -647,9 +624,8 @@ int main( int argc, char** argv )
 <h3 id="如何使用OpenCV扫描图像，查找表和时间测量-C"><a href="#如何使用OpenCV扫描图像，查找表和时间测量-C" class="headerlink" title="如何使用OpenCV扫描图像，查找表和时间测量(C++)"></a>如何使用OpenCV扫描图像，查找表和时间测量(C++)</h3><p>了解如何使用OpenCV扫描图像（遍历每个图像像素）</p>
 <h3 id="对矩阵进行蒙版运算"><a href="#对矩阵进行蒙版运算" class="headerlink" title="对矩阵进行蒙版运算"></a>对矩阵进行蒙版运算</h3><p>了解如何使用邻居访问来扫描图像，并使用cv :: filter2D函数在图像上应用内核过滤器。</p>
 <p><strong>蒙版运算</strong>其实就是在原始图像上覆膜，或者可以理解为另一类的滤波操作，即提取特定的元素</p>
-<p>所以问题来了，<em>mask矩阵和滤波器核有什么区别呢？</em>–貌似没啥区别</p>
-<p>这里官方的教程个人感觉更偏滤波一些。而且其python的代码风格也有C++非常类似,举的例子也是锐化图像的例子:</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function
+<p>所以问题来了，<em>mask矩阵和滤波器核有什么区别呢？</em>—貌似没啥区别</p>
+<p>这里官方的教程个人感觉更偏滤波一些。而且其python的代码风格也有C++非常类似,举的例子也是锐化图像的例子:<br><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function
 <span class="token keyword">import</span> sys
 <span class="token keyword">import</span> time
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
@@ -722,9 +698,7 @@ int main( int argc, char** argv )
     cv<span class="token punctuation">.</span>destroyAllWindows<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">return</span> <span class="token number">0</span>
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-    main<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>其中的锐化操作可以用 <strong>filter2D()</strong> 来简化，主体内容简化后内容类似下面:</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#import的库与上面的代码相同</span>
+    main<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>其中的锐化操作可以用 <strong>filter2D()</strong> 来简化，主体内容简化后内容类似下面:<br><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#import的库与上面的代码相同</span>
 src <span class="token operator">=</span> cv<span class="token punctuation">.</span>imread<span class="token punctuation">(</span><span class="token string">"test.jpg"</span><span class="token punctuation">)</span>
 kernel <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
                    <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -737,13 +711,13 @@ cv<span class="token punctuation">.</span>imshow<span class="token punctuation">
 cv<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">"Output"</span><span class="token punctuation">,</span> dst1<span class="token punctuation">)</span>
 cv<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
 cv<span class="token punctuation">.</span>destroyAllWindows<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment"># ddepth = -1, means destination image has depth same asinput image</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># ddepth = -1, means destination image has depth same asinput image</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
 <h3 id="图像操作"><a href="#图像操作" class="headerlink" title="图像操作"></a>图像操作</h3><p>从文件读取/写入图像，访问像素，原始操作，可视化图像。</p>
 <h3 id="使用OpenCV添加（混合）两个图像"><a href="#使用OpenCV添加（混合）两个图像" class="headerlink" title="使用OpenCV添加（混合）两个图像"></a>使用OpenCV添加（混合）两个图像</h3><p>将学习如何融合两个图像！</p>
 <h3 id="改变图像的对比度和亮度！"><a href="#改变图像的对比度和亮度！" class="headerlink" title="改变图像的对比度和亮度！"></a>改变图像的对比度和亮度！</h3><p>将学习如何更改图像外观！</p>
 <h3 id="离散傅立叶变换"><a href="#离散傅立叶变换" class="headerlink" title="离散傅立叶变换"></a>离散傅立叶变换</h3><p>了解如何以及为什么在OpenCV中使用离散傅立叶变换</p>
 <h3 id="使用XML和YAML文件的文件输入和输出"><a href="#使用XML和YAML文件的文件输入和输出" class="headerlink" title="使用XML和YAML文件的文件输入和输出"></a>使用XML和YAML文件的文件输入和输出</h3><p>如何使用OpenCV的cv :: FileStorage数据结构将数据写入和读取XML或YAML文件格式</p>
-<h3 id="如何使用OpenCV-parallel-for-并行化代码-C"><a href="#如何使用OpenCV-parallel-for-并行化代码-C" class="headerlink" title="如何使用OpenCV parallel_for_并行化代码(C++)"></a>如何使用OpenCV parallel_for_并行化代码(C++)</h3><p>如何使用OpenCV parallel_for_轻松并行化代码。</p>
+<h3 id="如何使用OpenCV-parallelfor并行化代码-C"><a href="#如何使用OpenCV-parallelfor并行化代码-C" class="headerlink" title="如何使用OpenCV parallelfor并行化代码(C++)"></a>如何使用OpenCV parallel<em>for</em>并行化代码(C++)</h3><p>如何使用OpenCV parallel<em>for</em>轻松并行化代码。</p>
 <h2 id="三、图像处理"><a href="#三、图像处理" class="headerlink" title="三、图像处理"></a>三、图像处理</h2><p>了解OpenCV内部的图像处理（操作）功能。</p>
 <h3 id="1基本图纸"><a href="#1基本图纸" class="headerlink" title="1基本图纸"></a>1基本图纸</h3><p>学习如何使用OpenCV绘制简单的几何图形</p>
 <h3 id="2带有OpenCV的随机生成器和文本"><a href="#2带有OpenCV的随机生成器和文本" class="headerlink" title="2带有OpenCV的随机生成器和文本"></a>2带有OpenCV的随机生成器和文本</h3><p>使用OpenCV绘制一些精美的东西</p>
@@ -897,20 +871,20 @@ cv<span class="token punctuation">.</span>destroyAllWindows<span class="token pu
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
+                                <a href="/tags/%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">基础</span>
                                 </a>
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
                                 </a>
                             
                                 <a href="/tags/OpenCV/">
                                     <span class="chip bg-color">OpenCV</span>
                                 </a>
                             
-                                <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">基础</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -1247,7 +1221,7 @@ cv<span class="token punctuation">.</span>destroyAllWindows<span class="token pu
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.9k</span>&nbsp;字
+                class="white-color">9.8k</span>&nbsp;字
             
             
             
