@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="解决 hexo d 执行中断, Stars Shine">
+    <meta name="keywords" content="相机成像线性模型, Stars Shine">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>解决 hexo d 执行中断 | Stars Shine</title>
+    <title>相机成像线性模型 | Stars Shine</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">解决 hexo d 执行中断</h1>
+                    <h1 class="description center-align post-title">相机成像线性模型</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">基础</span>
                             </a>
                         
                     </div>
@@ -450,7 +450,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-08
+                    2021-02-27
                 </div>
                 
 
@@ -459,7 +459,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    375
+                    1.3k
                 </div>
                 
 
@@ -479,27 +479,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="hexo-d-命令只实现部分"><a href="#hexo-d-命令只实现部分" class="headerlink" title="hexo d 命令只实现部分"></a>hexo d 命令只实现部分</h1><h2 id="问题简述"><a href="#问题简述" class="headerlink" title="问题简述"></a>问题简述</h2><p>在按照相关<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35668237">教程</a>搭建博客时,前面的安装以及<strong>hexo g</strong>,<strong>hexo s</strong>顺利完成，但是在执行<strong>hexo d</strong>时出现了意外,在其执行过程中突然中断,并未显示执行完成的标志:<strong>INFO Deploy done: git</strong></p>
-<p>失败结果如下所示:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo d
-INFO  Validating config
-INFO  Deploying: <span class="token function">git</span>
-INFO  Clearing .deploy_git folder<span class="token punctuation">..</span>.
-INFO  Copying files from public folder<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h2><p>在网上查找了许多教程都没有作用，之后又查询了一番，突然发现stackflow上面的一个<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/66095027/after-hexo-d-when-diaplay-copying-files-from-public-folder-git-stopped-i-do">提问</a>和我遇到的问题一样，但是没有人回答，所以等待了一段时间有人回复之后，发现最终引到了hexo官方github里面的issue中的一个<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues/4634">问题</a>，这才明白可能自己遇到了新出现的bug。</p>
-<p>在这里贴出相关解决代码：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#在git bash 里面执行</span>
-<span class="token function">npm</span> un hexo-deployer-git
-<span class="token comment">#这一句要切换到master分支(.deploy_git/)里面安装</span>
-<span class="token function">npm</span> i hexojs/hexo-deployer-git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这也让我明白了如果2小时内找不到任何解决方案的话，最好找到官网及其相关信息查询。</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>github新版仓库初始化README时默认是生成main分支而不是master分支，而hexo默认是生成master分支(改了_config.yaml里的branch也没用),所以在生成仓库前把branch默认名的设置更改为master即可。</p>
-<h3 id="配图"><a href="#配图" class="headerlink" title="配图"></a>配图</h3><p>测试：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pytorch
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-m <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>
+                <h1 id="相机成像线性模型"><a href="#相机成像线性模型" class="headerlink" title="相机成像线性模型"></a>相机成像线性模型</h1><p>做项目时用到了有关相机内参和外参矩阵的相关知识，所以需要自己了解一些相关的基础。而涉及到相机内参和外参矩阵的内容，经查询后发现此部分跟<strong>相机标定</strong>有关。</p>
+<p>相机标定的主要步骤就是<strong>构造</strong>一个以图像信息为输入，图像中相关物体轮廓的三维坐标集合的<strong>数学模型</strong>，然后求解该模型的未知参数（内参矩阵,外参矩阵,畸变参数）,最后应用于实际情况。</p>
+<p>这里我们仅讨论相机的线性模型的建立,即针孔模型，不考虑畸变等复杂情况。</p>
+<h2 id="坐标系简介"><a href="#坐标系简介" class="headerlink" title="坐标系简介"></a>坐标系简介</h2><p>为了更清楚的描述模型的建立的过程，这里通常会以下面四个坐标系为基础进行建模。</p>
+<h3 id="二维图像坐标系"><a href="#二维图像坐标系" class="headerlink" title="二维图像坐标系"></a>二维图像坐标系</h3><p>二维图像坐标系其实也就是以数字图像为基础构造的坐标系，如最常见的二维数组结构组织形式。这里设定列的增长方向为u轴,行的增长方向为v轴。所以$(u,v)$表示数字图像上的某一点的像素坐标。($u,v$通常为非负整数)</p>
+<h3 id="二维成像平面坐标系"><a href="#二维成像平面坐标系" class="headerlink" title="二维成像平面坐标系"></a>二维成像平面坐标系</h3><p>表示图像物理位置的坐标系，在<strong>图像坐标系</strong>的基础上乘以<strong>每像素的物理尺寸</strong>，然后再<strong>加上</strong>原点的偏移量即可。其坐标系坐标点表示为$(x,y)$</p>
+<p><img src="/2021/02/27/%E7%9B%B8%E6%9C%BA%E6%88%90%E5%83%8F%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/uv2xy.png" alt="图像坐标系与成像平面坐标系"></p>
+<p>图像坐标系与成像平面坐标系之间的转换关系如下所示:</p>
+<p>$$<br>\left[\begin{array}{l}u \ v \ 1\end{array}\right]=\left[\begin{array}{ccc}1 / d x &amp; 0 &amp; u_{0} \ 0 &amp; 1 / d y &amp; v_{0} \ 0 &amp; 0 &amp; 1\end{array}\right]\left[\begin{array}{l}x \ y \ 1\end{array}\right]<br>$$</p>
+<p>其中$u_0,v_0$表示原点分别在列方向，行方向的偏移量。如果按上面图片中的理想状态，则满足$u_0=\frac{w}{2},v_0=\frac{h}{2}$。其中$w,h$为图像的宽，高。</p>
+<p>$d_x,d_y$分别为x,y方向上每像素的物理尺寸。</p>
+<h3 id="三维相机坐标系"><a href="#三维相机坐标系" class="headerlink" title="三维相机坐标系"></a>三维相机坐标系</h3><p>其坐标系中的点表示为$(x_c,y_c,z_c)$,其中深度$Z_c$为相机原点距世界坐标系下实物原点的距离。</p>
+<p>成像平面坐标系与相机坐标系之间的转换关系推导:</p>
+<p><img src="/2021/02/27/%E7%9B%B8%E6%9C%BA%E6%88%90%E5%83%8F%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/xy2xcyc.png" alt="中心透视模型"></p>
+<p>根据上图，我们可以得到如下关系:</p>
+<p>$$<br>\left{\begin{array}{l}x=f \frac{x_{c}}{z_{c}} \ y=f \frac{y_{c}}{z_{c}}\end{array}\right.<br>$$</p>
+<p>可以得到投影矩阵(即成像平面与相机坐标系之间的坐标的关系):<br>$$<br>z_{c}\left[\begin{array}{l}x \ y \ 1\end{array}\right]=\left[\begin{array}{lll}f &amp; 0 &amp; 0  \ 0 &amp; f &amp; 0  \ 0 &amp; 0 &amp; 1 \end{array}\right]\left[\begin{array}{c}x_{c} \ y_{c} \ z_{c} \end{array}\right]<br>$$</p>
+<h3 id="三维世界坐标系"><a href="#三维世界坐标系" class="headerlink" title="三维世界坐标系"></a>三维世界坐标系</h3><p>用来描述物体和物体(相机)之间的相对位置关系。定义其坐标系为$(O-X_WY_WZ_W)$,其坐标系下的坐标点为$(x_w,y_w,z_w)$</p>
+<p>世界坐标系与相机坐标系之间的坐标的关系如下所示:</p>
+<p>$$<br>\left[\begin{array}{c}X_{C} \ Y_{C} \ Z_{C} \ 1\end{array}\right]=\left[\begin{array}{cc}R &amp; t \ 0^{T} &amp; 1\end{array}\right]\left[\begin{array}{c}X_{W} \ Y_{W} \ Z_{W} \ 1\end{array}\right]<br>$$</p>
+<p>其中$\left[\begin{array}{cc}R &amp; t \ 0^{T} &amp; 1\end{array}\right]$可以简单表示为$M$(外参矩阵),$t=(t_1,t_2,t_3)^T是平移矩阵$，$R$是$3\times 3$的正交单位矩阵。</p>
+<h2 id="图像坐标系于世界坐标系之间的转换关系"><a href="#图像坐标系于世界坐标系之间的转换关系" class="headerlink" title="图像坐标系于世界坐标系之间的转换关系"></a>图像坐标系于世界坐标系之间的转换关系</h2><p>根据上面各个坐标系之间的转换，我们可以得到图像坐标系与世界坐标系之间的转换关系。<br>$$</p>
+<p>\begin{aligned}<br>\left[\begin{array}{l}u \ v \ 1\end{array}\right] &amp;= \left[\begin{array}{ccc}1 / d x &amp; 0 &amp; u_{0} \ 0 &amp; 1 / d y &amp; v_{0} \ 0 &amp; 0 &amp; 1\end{array}\right]\left[\begin{array}{l}x \ y \ 1\end{array}\right]</p>
+<p>\ &amp;= \frac{1}{z_{c}} \left[\begin{array}{ccc}1 / d x &amp; 0 &amp; u_{0} \ 0 &amp; 1 / d y &amp; v_{0} \ 0 &amp; 0 &amp; 1\end{array}\right]\left[\begin{array}{lll}f &amp; 0 &amp; 0  \ 0 &amp; f &amp; 0  \ 0 &amp; 0 &amp; 1 \end{array}\right]\left[\begin{array}{c}x_{c} \ y_{c} \ z_{c} \end{array}\right] \<br>&amp;=\frac{1}{z_{c}} \left[\begin{array}{ccc}1 / d x &amp; 0 &amp; u_{0} \ 0 &amp; 1 / d y &amp; v_{0} \ 0 &amp; 0 &amp; 1\end{array}\right]\left[\begin{array}{lll}f &amp; 0 &amp; 0  \ 0 &amp; f &amp; 0  \ 0 &amp; 0 &amp; 1 \end{array}\right]\left[\begin{array}{cc}R &amp; t \end{array}\right]\left[\begin{array}{c}x_{w} \ y_{w} \ z_{w}\end{array}\right]<br>\<br>&amp;=\frac{1}{z_{c}} \left[\begin{array}{ccc}f / d x &amp; 0 &amp; u_{0} \ 0 &amp; f_ / d y &amp; v_{0} \ 0 &amp; 0 &amp; 1\end{array}\right]\left[\begin{array}{cc}R &amp; t \end{array}\right]\left[\begin{array}{c}x_{w} \ y_{w} \ z_{w}\end{array}\right]<br>\<br>&amp;=\frac{1}{z_{c}} A M\left[\begin{array}{c}x_{w} \ y_{w} \ z_{w}\end{array}\right]<br>\end{aligned}<br>$$</p>
+<p>其中A为相机内参矩阵，M称为相机外参矩阵</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CMFD&dbname=CMFD201402&filename=1014176311.nh&v=W%25mmd2BWq5rRdbITnF4LKzt9zgRxMsjcq8kv77W2Zjx0aUFvIRheJgze92kGfGIcskSkF">舒娜. 摄像机标定方法的研究[D].南京理工大学,2014.</a></p>
+
                 
             </div>
             <hr/>
@@ -525,7 +531,7 @@ m <span class="token operator">=</span> np<span class="token punctuation">.</spa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/02/08/hexo%E9%97%AE%E9%A2%981/">http://example.com/2021/02/08/hexo%E9%97%AE%E9%A2%981/</a>
+                    <a href="http://example.com/2021/02/27/%E7%9B%B8%E6%9C%BA%E6%88%90%E5%83%8F%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">http://example.com/2021/02/27/%E7%9B%B8%E6%9C%BA%E6%88%90%E5%83%8F%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -563,8 +569,8 @@ m <span class="token operator">=</span> np<span class="token punctuation">.</spa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">基础</span>
                                 </a>
                             
                         </div>
@@ -610,17 +616,18 @@ m <span class="token operator">=</span> np<span class="token punctuation">.</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/02/08/hello-world/">
+                <a href="/2021/02/27/%E7%9B%B8%E6%9C%BA%E6%88%90%E5%83%8F%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="相机成像线性模型">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">相机成像线性模型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -630,9 +637,9 @@ m <span class="token operator">=</span> np<span class="token punctuation">.</spa
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -641,11 +648,12 @@ m <span class="token operator">=</span> np<span class="token punctuation">.</spa
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">基础</span>
                     </a>
                     
                 </div>
@@ -659,13 +667,13 @@ m <span class="token operator">=</span> np<span class="token punctuation">.</spa
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/08/markdown%E8%AF%AD%E6%B3%95/">
+                <a href="/2021/02/16/gdb%E7%94%A8%E6%B3%95%E7%AE%80%E4%BB%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Markdown语法">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="gdb用法简介">
                         
-                        <span class="card-title">Markdown语法</span>
+                        <span class="card-title">gdb用法简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -676,7 +684,7 @@ m <span class="token operator">=</span> np<span class="token punctuation">.</spa
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-16
                             </span>
                         <span class="publish-author">
                             
@@ -689,12 +697,16 @@ m <span class="token operator">=</span> np<span class="token punctuation">.</spa
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/markdown/">
-                        <span class="chip bg-color">markdown</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
-                    <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">基础</span>
+                    <a href="/tags/gdb/">
+                        <span class="chip bg-color">gdb</span>
+                    </a>
+                    
+                    <a href="/tags/debug/">
+                        <span class="chip bg-color">debug</span>
                     </a>
                     
                 </div>
@@ -825,6 +837,13 @@ m <span class="token operator">=</span> np<span class="token punctuation">.</spa
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
