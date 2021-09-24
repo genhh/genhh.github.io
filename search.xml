@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>(paper)Learning optical flow from still images</title>
+      <link href="2021/09/15/paper-Learning-optical-flow-from-still-images/"/>
+      <url>2021/09/15/paper-Learning-optical-flow-from-still-images/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Learning-optical-flow-from-still-images"><a href="#Learning-optical-flow-from-still-images" class="headerlink" title="Learning optical flow from still images"></a>Learning optical flow from still images</h1><p><strong>发表机构与时间</strong> : CVPR 2021 </p><p><strong>第一作者</strong>：Filippo Aleotti, Department of Computer Science and Engineering (DISI)<br>University of Bologna, Italy</p><p><strong>论文地址</strong> ：<a href="https://arxiv.org/abs/2104.03965">戳这里</a></p><p><strong>源码地址</strong> ：无</p><h2 id="泛读"><a href="#泛读" class="headerlink" title="泛读"></a>泛读</h2><h3 id="导言："><a href="#导言：" class="headerlink" title="导言："></a>导言：</h3><p><strong>问题</strong>：解决光流估计领域中真实图像的光流标签难以获取的问题</p><p><strong>难点</strong>：</p><p><strong>相关工作</strong>：光流领域</p><p><strong>本文工作</strong>：</p><p>作者提出可以通过单张静态图像，利用现成的单目深度估计模型得到深度图，再通过已知的目标旋转和平移变换，就能同时得到视角变换后的新图像，以及对应的光流真值，作者称之为Depthstillation。在此过程中需要解决两个问题，一是冲突像素点，即变换后多个像素点对应同一个像素点，作者提出利用实例分割算法将静态图像中的动态目标检测出来，对这些目标进行运动变换；二是孔洞问题，即变换后存在较多没有对应点的黑色像素点。作者提出利用图像修补（inpaint）的方法对孔洞点进行填充。作者利用FlyingChairs，FlyingThings3D，COCO和DAVIS构建真实光流估计数据集，所提方法在Sintel和KITTI数据集上的实验表明在这些真实图像上利用构造的光流标签训练的性能比利用合成图像和无标签的视频流都要好。</p><p><strong>阅读过程的疑问和感悟</strong></p><h3 id="特色："><a href="#特色：" class="headerlink" title="特色："></a>特色：</h3><p><img src="/2021/09/15/paper-Learning-optical-flow-from-still-images/arch.png" alt="网络架构"></p><h2 id="精读"><a href="#精读" class="headerlink" title="精读"></a>精读</h2><p><strong>原理</strong>：</p><p><strong>实验</strong>：</p><p><strong>代码</strong>：</p><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a href="https://www.paperweekly.site/papers/5221">paperweekly</a></p><p>[2] <a href="https://xxx.com">引用文章标题2</a></p><p>[3] <a href="https://xxx.com">引用文章标题3</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 论文 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>(paper)Learning by Distillation -- A Self-Supervised Learning Framework for Optical Flow Estimation</title>
       <link href="2021/09/14/paper-Learning-by-Distillation-A-Self-Supervised-Learning-Framework-for-Optical-Flow-Estimation/"/>
       <url>2021/09/14/paper-Learning-by-Distillation-A-Self-Supervised-Learning-Framework-for-Optical-Flow-Estimation/</url>
