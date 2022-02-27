@@ -463,7 +463,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.5k
+                    5k
                 </div>
                 
 
@@ -484,28 +484,30 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="矩阵论复习总结"><a href="#矩阵论复习总结" class="headerlink" title="矩阵论复习总结"></a>矩阵论复习总结</h1><p>关于期末考试常见考点题型的总结，有所不同请查看其他文章补全</p>
-<h1 id="一、矩阵的相似变换"><a href="#一、矩阵的相似变换" class="headerlink" title="一、矩阵的相似变换"></a>一、矩阵的相似变换</h1><h2 id="多项式化简-特征多项式，最小多项式"><a href="#多项式化简-特征多项式，最小多项式" class="headerlink" title="多项式化简(特征多项式，最小多项式)"></a>多项式化简(特征多项式，最小多项式)</h2><h3 id="求解最小特征值"><a href="#求解最小特征值" class="headerlink" title="求解最小特征值"></a>求解最小特征值</h3><p>(1)$m<em>A(\lambda) = \frac{\phi (\lambda)}{D</em>{n-1}(\lambda)}$,其中$\phi(\lambda)=det(\lambda I -A)$,$D_{n-1}$为$\lambda I -A$的<strong>n-1阶行列式因子</strong></p>
+<h1 id="一、矩阵的相似变换"><a href="#一、矩阵的相似变换" class="headerlink" title="一、矩阵的相似变换"></a>一、矩阵的相似变换</h1><h2 id="多项式化简"><a href="#多项式化简" class="headerlink" title="多项式化简"></a>多项式化简</h2><p>特征多项式，最小多项式</p>
+<h3 id="求解最小特征值"><a href="#求解最小特征值" class="headerlink" title="求解最小特征值"></a>求解最小特征值</h3><p>(1)$m<em>A(\lambda) = \frac{\phi (\lambda)}{D</em>{n-1}(\lambda)}$,其中$\phi(\lambda)=det(\lambda I -A),D_{n-1}$为 $\lambda I -A$的<strong>n-1阶行列式因子</strong></p>
 <p>(2)书中定理1.17:设$A\in C^{m\times n}$,$\lambda_1,\lambda_2,\dots,\lambda_t$是A的所有互不相同的特征值,则:</p>
 <script type="math/tex; mode=display">m_A(\lambda) = (\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\dots (\lambda-\lambda_t)^{m_t}</script><p>其中$m_i$是$A$的Jordan标准形$J$中含$\lambda_i$的Jordan块的最高阶数</p>
 <h2 id="Schmidt正交化方法"><a href="#Schmidt正交化方法" class="headerlink" title="Schmidt正交化方法"></a><font color="red">Schmidt正交化方法</font></h2><p>从线性无关向量组导出<strong>正交向量组</strong>的方法</p>
-<script type="math/tex; mode=display">y_1 = x_1, y_j = x_j - \frac{(x_j,y_1)}{(y_1,y_1)}y_1 - \dots - \frac{(x_j,y_{j-1})}{(y_{j-1},y_{j-1})}y_{j-1}\quad (j=2,\dots ,s)</script><h2 id="相似对角化-P-1-AP-wedge"><a href="#相似对角化-P-1-AP-wedge" class="headerlink" title="相似对角化($P^{-1}AP=\wedge$)"></a>相似对角化($P^{-1}AP=\wedge$)</h2><p>能相似对角化的前提是矩阵$A\in C^n$有n个线性无关的特征向量</p>
-<h2 id="Jordan标准形-P-1-AP-J"><a href="#Jordan标准形-P-1-AP-J" class="headerlink" title="Jordan标准形($P^{-1}AP=J$)"></a><font color="red">Jordan标准形($P^{-1}AP=J$)</font></h2><p>(1)<strong>特征向量法</strong></p>
+<script type="math/tex; mode=display">y_1 = x_1, y_j = x_j - \frac{(x_j,y_1)}{(y_1,y_1)}y_1 - \dots - \frac{(x_j,y_{j-1})}{(y_{j-1},y_{j-1})}y_{j-1}\quad (j=2,\dots ,s)</script><h2 id="相似对角化-P-1-AP-wedge"><a href="#相似对角化-P-1-AP-wedge" class="headerlink" title="相似对角化$P^{-1}AP=\wedge$"></a>相似对角化$P^{-1}AP=\wedge$</h2><p>能相似对角化的前提是矩阵$A\in C^n$有n个线性无关的特征向量</p>
+<h2 id="Jordan标准形-P-1-AP-J"><a href="#Jordan标准形-P-1-AP-J" class="headerlink" title="Jordan标准形$P^{-1}AP=J$"></a><font color="red">Jordan标准形$P^{-1}AP=J$</font></h2><p>(1)<strong>特征向量法</strong></p>
 <p>Jordan矩阵阶数等价于特征值的个数(包括重数)，Jordan块的个数等价于线性无关的特征向量的数量，每个Jordan块的对角元素是相对应的特征值</p>
 <p><strong>注意</strong>:某一特征值重数较高时可能无法确定Jordan块</p>
 <p>(2)<strong>初等变换法</strong></p>
 <p>首先将<strong>特征矩阵</strong>($\lambda I -A$)化为<strong>Smith标准形</strong>，得到<strong>不变因子</strong>，然后再计算得到<strong>初等因子</strong>。每个初等因子的幂次为Jordan块阶数，元素是对应的特征值，总和为原矩阵的阶数。</p>
 <p>(3)<strong>行列式因子法</strong></p>
 <p>先求出特征矩阵所对应的n个<strong>行列式因子</strong>，然后根据公式算出A的<strong>不变因子</strong>，然后算<strong>初等因子</strong>和Jordan标准形</p>
-<h2 id="酉相似-U-1-AU-wedge-quad-U-1-AU-T-这里-T-表示上三角矩阵"><a href="#酉相似-U-1-AU-wedge-quad-U-1-AU-T-这里-T-表示上三角矩阵" class="headerlink" title="酉相似($U^{-1}AU=\wedge$, $\quad U^{-1}AU=T$)(这里$T$表示上三角矩阵)"></a>酉相似($U^{-1}AU=\wedge$, $\quad U^{-1}AU=T$)(这里$T$表示上三角矩阵)</h2><h2 id="常用定义和定理"><a href="#常用定义和定理" class="headerlink" title="常用定义和定理"></a>常用定义和定理</h2><p><strong>Smith标准形</strong>:</p>
-<p><strong>不变因子</strong>:</p>
-<p><strong>初等因子</strong>:</p>
-<p><strong>行列式因子</strong>:$A(\lambda)$的全部k阶子式的<strong>首一最大公因式</strong>$D_k(\lambda)$</p>
+<h2 id="酉相似-U-1-AU-wedge-quad-U-1-AU-T"><a href="#酉相似-U-1-AU-wedge-quad-U-1-AU-T" class="headerlink" title="酉相似$U^{-1}AU=\wedge$, $\quad U^{-1}AU=T$"></a>酉相似$U^{-1}AU=\wedge$, $\quad U^{-1}AU=T$</h2><p>这里$T$表示上三角矩阵</p>
+<h2 id="常用定义和定理"><a href="#常用定义和定理" class="headerlink" title="常用定义和定理"></a>常用定义和定理</h2><p><strong>Smith标准形</strong>:</p>
+<p><strong>不变因子$d_k(\lambda)$</strong>:smith标准形里的元素,$d<em>r(\lambda) = \frac{D_r(\lambda)}{D</em>{r-1}(\lambda)}$</p>
+<p><strong>初等因子</strong>:所有不变因子中的一次因式方幂</p>
+<p><strong>行列式因子$D_k(\lambda)$</strong>:$A(\lambda)$的全部k阶子式的<strong>首一最大公因式</strong>$D_k(\lambda)$（子式的取得方法与余子式一致，不全是连续的行或列构成的子式）</p>
 <p><strong>零化多项式$f(\lambda)$</strong>:$f(\lambda)$为多项式，使$f(A)=0$</p>
-<p><strong>最小多项式</strong>:A的零化多项式中<strong>次数最低</strong>的首一多项式，即包含了所有互不相同的特征值(即每个特征值对应一个Jordan块，重值也是不同的)</p>
+<p><strong>最小多项式</strong>:A的零化多项式中<strong>次数最低</strong>的首一多项式，即包含了所有互不相同的特征值(即每个特征值对应一个Jordan块)</p>
 <p><strong>酉矩阵</strong>:$A^HA = I$,当矩阵内元素全为实数时退化为正交矩阵,即$A^TA=I$</p>
 <h1 id="二、范数理论"><a href="#二、范数理论" class="headerlink" title="二、范数理论"></a>二、范数理论</h1><h2 id="证明构造的向量范数是向量范数"><a href="#证明构造的向量范数是向量范数" class="headerlink" title="证明构造的向量范数是向量范数"></a>证明构造的向量范数是向量范数</h2><h2 id="证明构造的矩阵范数是矩阵范数"><a href="#证明构造的矩阵范数是矩阵范数" class="headerlink" title="证明构造的矩阵范数是矩阵范数"></a>证明构造的矩阵范数是矩阵范数</h2><p>需要证明4个性质均满足:</p>
 <p>非负性:当$A\neq 0$时，$||A||&gt;0$，当$A=0$时，$||A||=0$.</p>
-<p>齐次性:对任意$\lambda\in C$,$||\lambda A|| = |\lambda|\quad ||A||$</p>
+<p>齐次性:对任意$\lambda\in C$,$||\lambda A|| = |\lambda|\cdot ||A||$</p>
 <p>三角不等式:对任意$A,B\in C^{n\times n}$,都有$||A+B||\le||A||+||B||$</p>
 <p>三角不等式证明：</p>
 <p>相容性:对任意$A,B\in C^{n\times n}$,都有$||AB||\le||A||\quad ||B||$</p>
@@ -514,7 +516,9 @@
 <h2 id="证明矩阵范数与向量范数相容"><a href="#证明矩阵范数与向量范数相容" class="headerlink" title="证明矩阵范数与向量范数相容"></a>证明矩阵范数与向量范数相容</h2><script type="math/tex; mode=display">||Ax||_v \le ||A||_m ||x||_v</script><p>若上式满足，则说明矩阵范数$||\cdot||_m$与向量范数$||\cdot||_v$是<strong>相容</strong>的</p>
 <p>与证明矩阵范数的相容性类似</p>
 <h2 id="常见范数总结"><a href="#常见范数总结" class="headerlink" title="常见范数总结"></a>常见范数总结</h2><p>其中$x=(x_1,x_2,\dots,x_n)^T$。</p>
-<script type="math/tex; mode=display">
+<p>导出范数定义(一般都是将分母取1消掉max符号):</p>
+<script type="math/tex; mode=display">||A|| = \max\limits_{x\neq 0} \frac{||Ax||_v}{||x||_v}</script><script type="math/tex; mode=display">
+
 \begin{array}{|c|c|c|}
 \hline
 {范数类型} & {名称} & {计算公式}  \\
@@ -564,9 +568,9 @@ f(J_1t)& & \\
 <p>所以可以得到下面的一组方程解:</p>
 <script type="math/tex; mode=display">\frac{d^l}{d\lambda^l}r(\lambda,t)|_{\lambda=\lambda_i} = \frac{d^l}{d\lambda^l}f(\lambda t)|_{\lambda=\lambda_i} \quad(l=0,1,\dots,r_{i-1};i=1,2,\dots,s)</script><p>解出$b_k$后即可算出$f(At)$,$r$表示某特征值的重数,$s$表示互不相同的特征值的个数</p>
 <h2 id="求微分方程的解"><a href="#求微分方程的解" class="headerlink" title="求微分方程的解"></a>求微分方程的解</h2><h3 id="求解非齐次微分方程组-frac-d-dt-x-t-Ax-t-b-t"><a href="#求解非齐次微分方程组-frac-d-dt-x-t-Ax-t-b-t" class="headerlink" title="求解非齐次微分方程组$\frac{d}{dt}x(t) = Ax(t)+b(t)$"></a>求解非齐次微分方程组$\frac{d}{dt}x(t) = Ax(t)+b(t)$</h3><p>(1)计算矩阵指数函数$e^{At}$</p>
-<p>(2)计算积分$y(t) = \int^t_{t_0}e^{-A\tau}b(\tau)d\tau\quad$(把$e^{At}$中的$t$替换为$-\tau$即可)</p>
+<p>(2)计算积分$y(t) = \int^t_{t_0}e^{-A\tau}b(\tau)d\tau\quad$(把$e^{At}$中的$t$替换为$-\tau$即可，$b(\tau)$中的$e^\tau$为<strong>标量</strong>)</p>
 <p>(3)计算满足初始条件$x(t_0)=x_0$的解$x(t)=e^{At}x_0+e^{At}y(t)$</p>
-<h2 id="常见矩阵函数总结"><a href="#常见矩阵函数总结" class="headerlink" title="常见矩阵函数总结"></a>常见矩阵函数总结</h2><script type="math/tex; mode=display">e^A = \sum\limits_{k=0}^{+\infty}\frac{1}{k!}A^k</script><script type="math/tex; mode=display">sinA = \sum\limits_{k=0}^{+\infty}\frac{(-1)^k}{(2k+1)!}A^{2k+1}</script><script type="math/tex; mode=display">cosA = \sum\limits_{k=0}^{+\infty}\frac{(-1)^k}{(2k)!}A^{2k}</script><h1 id="四、矩阵分解"><a href="#四、矩阵分解" class="headerlink" title="四、矩阵分解"></a>四、矩阵分解</h1><h2 id="QR分解"><a href="#QR分解" class="headerlink" title="QR分解"></a><font color="red">QR分解</font></h2><p>Q是酉矩阵,R是具有正对角元的上三角矩阵，<strong>分解结果是唯一的</strong></p>
+<h2 id="常见矩阵函数总结"><a href="#常见矩阵函数总结" class="headerlink" title="常见矩阵函数总结"></a>常见矩阵函数总结</h2><script type="math/tex; mode=display">e^A = \sum\limits_{k=0}^{+\infty}\frac{1}{k!}A^k</script><script type="math/tex; mode=display">sinA = \sum\limits_{k=0}^{+\infty}\frac{(-1)^k}{(2k+1)!}A^{2k+1}</script><script type="math/tex; mode=display">cosA = \sum\limits_{k=0}^{+\infty}\frac{(-1)^k}{(2k)!}A^{2k}</script><script type="math/tex; mode=display">\frac{1}{1+x} = \sum\limits_{k=0}^{+\infty}(-1)^kA^{k}</script><script type="math/tex; mode=display">\frac{1}{1-x} = \sum\limits_{k=0}^{+\infty}A^{k}</script><h1 id="四、矩阵分解"><a href="#四、矩阵分解" class="headerlink" title="四、矩阵分解"></a>四、矩阵分解</h1><h2 id="QR分解"><a href="#QR分解" class="headerlink" title="QR分解"></a><font color="red">QR分解</font></h2><p>Q是酉矩阵,R是具有正对角元的上三角矩阵，<strong>分解结果是唯一的</strong></p>
 <p>(1)<strong>Schmidt正交化方法</strong></p>
 <p>(矩阵A要可逆)首先将A的列向量进行schmidt正交化，</p>
 <p>然后再单位化后的结果就是Q,</p>
@@ -577,15 +581,16 @@ f(J_1t)& & \\
   &  & &||p_n||_2 \end{bmatrix} }=QR</script><p>其中$q<em>k=\frac{p_k}{||p_k||_2}$,$p_k$则是根据Schmidt正交化得来，$\lambda</em>{ij}=\frac{(a_i,p_j)}{(p_j,p_j)}$</p>
 <p>(2)<strong>Givens变换</strong></p>
 <p>与HouseHolder变换的主要区别是每列变换时不是一个H矩阵，而是一系列的givens矩阵。</p>
-<p>givens变换从几何上理解可以理解为旋转变换，因此<strong>模长不会改变</strong></p>
+<p>givens变换从几何上理解可以理解为旋转变换，因此<strong>模长不会改变</strong>,</p>
+<p>性质:givens矩阵T是<strong>酉矩阵</strong>，且<strong>行列式值为1</strong>。</p>
 <p>第1列:</p>
-<p>逐次计算$T<em>{12},T</em>{13},\dots,T_{1n}$,如果原矩阵该位置元素本身为0则无需计算，跳过即可</p>
+<p>根据矩阵$A$选取c,s生成givens矩阵$T<em>{12}$,计算$T</em>{12}A$,观察第一列列向量是否只有第一维非0，若不是，则从$T<em>{12}A$选取新的c,s从而生成新的givens矩阵$T</em>{13}$，计算$T<em>{13}T</em>{12}A$的结果。重复上述操作直至第一列列向量满足第一维元素非0，其他维为0.如果原矩阵或累乘矩阵第$j$行第1列位置元素本身为0，则跳过计算$T_{1j}$,计算后续非零位置对应的givens矩阵。</p>
 <p>第2列:</p>
-<p>逐次计算$T<em>{23},T</em>{24},\dots,T_{2n}$,如果原矩阵该位置元素本身为0则无需计算，跳过即可</p>
-<p>第n-1列:</p>
-<p>计算$T_{n-1,n}$,如果原矩阵该位置元素本身为0则无需计算，跳过即可,</p>
+<p>后续每列和第一列操作类似</p>
 <p>最后得$R = T<em>{n-1,n}\dots T</em>{2n}\dots T<em>{23}T</em>{1n}\dots T_{12}A$,</p>
 <p>$Q=T<em>{12}^H\dots T</em>{1n}^HT<em>{23}^H\dots T</em>{2n}^H\dots T_{n-1,n}^H$</p>
+<p><strong>givens矩阵T的生成规则</strong>，T一般是方阵，givens矩阵是在单位矩阵$I$的基础上，根据矩阵$T<em>{ij}$的下标替换对应$t</em>{ii},t<em>{ij},t</em>{ji},t_{jj}$的元素。($i&lt;j$)然后替换元素满足下式:</p>
+<script type="math/tex; mode=display">t_{ii} = \bar{c}, t_{ij}=\bar{s},t_{ji}=-s,t_{jj}=c</script><p>c和s的求法:<br>与givens矩阵$T<em>{ij}$下标和累乘矩阵($A,T</em>{12}A,\dots$)有关，即$c=\frac{a<em>{ii} }{\sqrt{a</em>{ii}^2+a<em>{ij}^2} }$,$s=\frac{a</em>{ij} }{\sqrt{a<em>{ii}^2+a</em>{ij}^2} }$</p>
 <p>(3)<strong>Householder变换</strong></p>
 <p>Householder变换从几何上可以理解为镜面反射变换，因此<strong>模长也不变</strong></p>
 <p>$A = (a_1,a_2,\dots,a_n)$($n\ge 3$)</p>
@@ -598,7 +603,7 @@ f(J_1t)& & \\
 <p>第n-1列:</p>
 <p>取$x<em>{n-1} =(x</em>{n-1,n-1},\dots,b<em>{n,n-1})$(2维),计算$\tilde{u</em>{n-1} }=\frac{x<em>{n-1}-\alpha</em>{n-1} \tilde{e<em>1} }{||x</em>{n-1}-\alpha<em>{n-1} \tilde{e_1}||_2}$,其中$\alpha</em>{n-1}=||x_{n-1}||_2$,$\tilde{e_1}$为单位向量(维数为2维)</p>
 <p>计算$\tilde{H<em>{n-1} } = I-2u_2u_2^T$(2维),$H</em>{n-1}={\begin{bmatrix}<br>1&amp; &amp; 0^T\<br>&amp; \ddots&amp; \<br>0&amp; &amp; \tilde{H<em>{n-1} }\<br>\end{bmatrix} }</em>{n\times n}$ , $R = H<em>{n-1}\dots H_2H_1A$ ,$\quad Q = H</em>{1}H<em>2\dots H</em>{n-1}$</p>
-<p><strong>注意</strong>:在此过程中只要$H_{t}\dots H_2H_1A$为上三角矩阵即可停止？</p>
+<p><strong>注意</strong>:在此过程中只要$H_{t}\dots H_2H_1A$为上三角矩阵即可停止</p>
 <h2 id="满秩分解"><a href="#满秩分解" class="headerlink" title="满秩分解"></a><font color="red">满秩分解</font></h2><p>满秩分解不唯一</p>
 <p>(1)<strong>逆矩阵方法</strong></p>
 <p>算出Hermite标准形变换过程中的矩阵S,T</p>
@@ -608,8 +613,10 @@ f(J_1t)& & \\
 <p>(2)<strong>Hermite标准形方法</strong></p>
 <p>A的Hermite标准形H:矩阵A经过行变换后的阶梯矩阵(每一行首非0元素为1且对应列只有该元素非0)</p>
 <p>取A的$j_1,j_2,\dots,j_r$列构成矩阵F(列满秩),取H的前r行构成矩阵G(行满秩)，则$A=FG$即为A的一个满秩分解。</p>
-<h1 id="五、特征值的估计与表示"><a href="#五、特征值的估计与表示" class="headerlink" title="五、特征值的估计与表示"></a>五、特征值的估计与表示</h1><h2 id="盖尔圆-Gerschgorin-分离矩阵特征值"><a href="#盖尔圆-Gerschgorin-分离矩阵特征值" class="headerlink" title="盖尔圆(Gerschgorin)分离矩阵特征值"></a><font color="red">盖尔圆(Gerschgorin)分离矩阵特征值</font></h2><p>先算出矩阵$A$的盖尔圆，然后选取对角矩阵$D$,计算矩阵$B=DAD^{-1}$的盖尔圆，使得相交的盖尔圆分离(矩阵D第i个元素大于1,则放大第i个盖尔圆，反之小于1则缩小第i个盖尔圆)</p>
-<p>盖尔圆:<br>$$G_i = \{z | |z-a_{ii}|\le R_i, z\in C\} $$<br>其中$R<em>i = \sum\limits^{n}</em>{j=1,j\neq i}|a_{ij}|, (i=1,2,\dots,n)$</p>
+<p><strong>快速求解二阶矩阵的逆</strong>:行列式不为0的情况下，主对角线元素互换，副对角线元素变号，外面再乘<strong>行列式分之一</strong>，这在算由满秩分解的FG来求得的$A^+$时如果求逆为2阶，会更快</p>
+<h1 id="五、特征值的估计与表示"><a href="#五、特征值的估计与表示" class="headerlink" title="五、特征值的估计与表示"></a>五、特征值的估计与表示</h1><h2 id="盖尔圆-Gerschgorin-分离矩阵特征值"><a href="#盖尔圆-Gerschgorin-分离矩阵特征值" class="headerlink" title="盖尔圆(Gerschgorin)分离矩阵特征值"></a><font color="red">盖尔圆(Gerschgorin)分离矩阵特征值</font></h2><p>先算出矩阵$A$的盖尔圆，然后选取<strong>对角矩阵</strong>$D$,计算矩阵$B=DAD^{-1}$的盖尔圆，使得相交的盖尔圆分离(矩阵D第i个元素大于1,则放大第i个盖尔圆，反之小于1则缩小第i个盖尔圆)</p>
+<p>盖尔圆: </p>
+<script type="math/tex; mode=display">G_i = \{z |\quad |z-a_{ii}|\le R_i, z\in C\}</script><p>其中$R<em>i = \sum\limits^{n}</em>{j=1,j\neq i}|a_{ij}|, (i=1,2,\dots,n)$,<strong>注意</strong>半径R是模值</p>
 <h2 id="Rayleigh商"><a href="#Rayleigh商" class="headerlink" title="Rayleigh商"></a>Rayleigh商</h2><script type="math/tex; mode=display">R(x)=\frac{x^HAx}{x^Hx}</script><p>其中$A$为Hermite矩阵，$0\neq x\in C^n$<br>矩阵$A$的特征值与Rayleigh商的关系:</p>
 <script type="math/tex; mode=display">\lambda_{min} = \min\limits_{x\neq 0}R(x) \quad \lambda_{max} = \max\limits_{x\neq 0}R(x)</script><h1 id="六、广义逆矩阵"><a href="#六、广义逆矩阵" class="headerlink" title="六、广义逆矩阵"></a>六、广义逆矩阵</h1><h2 id="A-1-的计算"><a href="#A-1-的计算" class="headerlink" title="$A^{ {1} }$的计算"></a>$A^{ {1} }$的计算</h2><p>根据满秩分解<strong>逆矩阵法</strong>得来:</p>
 <script type="math/tex; mode=display">SAP = {\begin{bmatrix}
@@ -624,7 +631,12 @@ I_r& 0\\
 <p>(6)$AA^{(1)} = I_m \leftrightarrow rankA=m$</p>
 <p>(7)$A^{(1)}A = I_n \leftrightarrow rankA=n$</p>
 <h2 id="Moore-Penrose逆-A-的计算"><a href="#Moore-Penrose逆-A-的计算" class="headerlink" title="Moore-Penrose逆$A^+$的计算"></a>Moore-Penrose逆$A^+$的计算</h2><p>由满秩分解$A = FG$而来:</p>
-<script type="math/tex; mode=display">A^+ = G^H(GG^H)^{-1}(F^HF)^{-1}F^H</script><h2 id="A-的应用"><a href="#A-的应用" class="headerlink" title="$A^+$的应用"></a>$A^+$的应用</h2><p>常用来求解形如$AX=b$的线性方程组</p>
+<script type="math/tex; mode=display">A^+ = G^H(GG^H)^{-1}(F^HF)^{-1}F^H</script><p>F列满秩，G行满秩</p>
+<p>常用结论和性质:</p>
+<p>当$rankA=m$时:$A^+ = A^H(AA^H)^{-1}$</p>
+<p>当$rankA=n$时:$A^+ = (AA^H)^{-1}A^H$</p>
+<p>当矩阵A为酉矩阵时:$A^+ = A^H(AA^H)^{-1}=A^HI=A^H$</p>
+<script type="math/tex; mode=display">(A^HA)^+=A^+(A^H)^+</script><h2 id="A-的应用"><a href="#A-的应用" class="headerlink" title="$A^+$的应用"></a>$A^+$的应用</h2><p>常用来求解形如$AX=b$的线性方程组</p>
 <script type="math/tex; mode=display">AA^+b=b \leftrightarrow 有解</script><p>解的公式是一致的，但是根据有解无解会有不同的名称:</p>
 <p>若<strong>有</strong>解:</p>
 <p><strong>通解:</strong></p>
@@ -658,16 +670,16 @@ a_{m1}B & a_{m2}B & \dots & a_{mn}B \\
 <script type="math/tex; mode=display">T(\beta_1,\beta_2,\dots,\beta_n)=T[(\alpha_1,\alpha_2,\dots,\alpha_n)P] = T[(\alpha_1,\alpha_2,\dots,\alpha_n)]P = (\alpha_1,\alpha_2,\dots,\alpha_n)AP = (\beta_1,\beta_2,\dots,\beta_n)P^{-1}AP</script><p>所以可得$B=P^{-1}AP$，重要是推导过程中的思想，理解了思路，题型稍微变化也能自己推出来</p>
 <h2 id="5-证明不变子空间"><a href="#5-证明不变子空间" class="headerlink" title="5 证明不变子空间"></a><font color="red">5 证明不变子空间</font></h2><p>T是V的一个线性变换,W是V的一个子空间，任意$\alpha$ 都满足 $\alpha \in W \rightarrow T(\alpha) \in W$，则W是V的不变子空间</p>
 <p>若$T$的变换已知，则X未知也可以直接计算$T(X)$来判断W是否为不变子空间</p>
-<h2 id="证明线性变换T是否为可逆变换"><a href="#证明线性变换T是否为可逆变换" class="headerlink" title="证明线性变换T是否为可逆变换"></a>证明线性变换T是否为可逆变换</h2><p>(1)法一:判断T是否为双射(单射和满射均满足，一一对应),是双射则说明T为可逆变换</p>
+<h2 id="证明线性变换T是否为可逆变换"><a href="#证明线性变换T是否为可逆变换" class="headerlink" title="证明线性变换T是否为可逆变换"></a>证明线性变换T是否为可逆变换</h2><p>(1)<strong>法一</strong>:判断T是否为双射(单射和满射均满足，一一对应),是双射则说明T为可逆变换</p>
 <p>单射成立判断条件:$T(x)=T(y)\rightarrow x=y$</p>
 <p>双射判断条件:?暂时不清楚</p>
-<p>(2)法二:判断T在某一组基下的矩阵是否可逆，A不可逆则说明T不可逆</p>
+<p>(2)<strong>法二</strong>:判断T在某一组基下的矩阵是否可逆，A不可逆则说明T不可逆</p>
 <h2 id="6-求线性子空间的基使线性变换的矩阵为对角矩阵"><a href="#6-求线性子空间的基使线性变换的矩阵为对角矩阵" class="headerlink" title="6 求线性子空间的基使线性变换的矩阵为对角矩阵"></a><strong>6 求线性子空间的基使线性变换的矩阵为对角矩阵</strong></h2><p>(1)先确定线性子空间$W$上的简单基$E$</p>
 <p>(2)写出线性变换$T$在基$E$下的矩阵$A$(算出每个简单基所对应的线性变换，然后用简单基进行表示，然后提出的系数即为A的列向量)</p>
 <p>(3)求出$A$的特征值和特征向量，进一步写出相似变换矩阵$P$($P$由特征向量组成)</p>
 <p>(4)算出对应矩阵$P^{-1}AP$的基$\beta$($\beta =EP$)($\beta_i = (e_1,e_2,\dots,e_n)p_i$),即最终结果。</p>
 <h2 id="7-求欧氏空间的度量矩阵"><a href="#7-求欧氏空间的度量矩阵" class="headerlink" title="7 求欧氏空间的度量矩阵"></a><strong>7 求欧氏空间的度量矩阵</strong></h2><p>度量矩阵的定义:</p>
-<script type="math/tex; mode=display">A = (a_{i,j})_{m\times n}, \quad a_{i,j}=(\alpha_i,\alpha_j)</script><p>式中$\alpha_i,\alpha_j$为线性空间$V$的第$i,j$个基,</p>
+<script type="math/tex; mode=display">A = (a_{i,j})_{m\times n}, \quad a_{i,j}=(\alpha_i,\alpha_j)</script><p>式中$\alpha_i,\alpha_j$为线性空间$V$的第$i,j$个基,度量矩阵是可逆的</p>
 <p><strong>注意内积的具体计算方式根据题目的定义来判断</strong></p>
 <h2 id="8-投影变换"><a href="#8-投影变换" class="headerlink" title="8 投影变换"></a>8 投影变换</h2><p>定义:设L与M为$C^n$的子空间,且$C^n=L+M$,即$C^n$是L与M的<strong>直和</strong>(唯一分解形式)。任意$x\in C^n$可唯一分解为$x=y+z$，其中$y\in L$,$z\in M$。称y为x<strong>沿M到L的投影</strong>，将x变为沿着M到L的投影y的变换称为沿M到L的投影变换，记为$P_{L,M}$,即:</p>
 <script type="math/tex; mode=display">P_{L,M}(x)=y</script><p>投影变换在简单基下的<strong>矩阵</strong>称为投影矩阵，记为$\mathbf{P_{L,M} }$</p>
@@ -692,7 +704,8 @@ Y^H\\
 <p>3)$V_1\cap V_2={0}$</p>
 <p>4)$dim(V_1+V_2)=dimV_1+dimV_2$</p>
 <p><strong>核心定义和定理</strong></p>
-
+<p>线性变换的定义:同时满足下面两式的变换:</p>
+<script type="math/tex; mode=display">T(\alpha +\beta) = T(\alpha) + T(\beta)</script><script type="math/tex; mode=display">T(k\alpha) = kT(\alpha)</script>
                 
             </div>
             <hr/>
@@ -803,18 +816,17 @@ Y^H\\
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/12/22/%E7%9F%A9%E9%98%B5%E8%AE%BA%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/">
+                <a href="/2022/02/11/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E5%9E%8B%E6%80%BB%E7%BB%93/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="矩阵论复习总结">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="基础数据结构题型总结">
                         
-                        <span class="card-title">矩阵论复习总结</span>
+                        <span class="card-title">基础数据结构题型总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -824,9 +836,9 @@ Y^H\\
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-11
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -834,15 +846,6 @@ Y^H\\
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">基础</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1123,7 +1126,7 @@ Y^H\\
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">star</a>
@@ -1132,7 +1135,7 @@ Y^H\\
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.7k</span>&nbsp;字
+                class="white-color">18.9k</span>&nbsp;字
             
             
             
