@@ -459,7 +459,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.8k
+                    1.9k
                 </div>
                 
 
@@ -626,7 +626,10 @@ public:
 <p>递归：<br>先写出边界条件和递归，最后写出每次递归需要的相应操作并返回。</p>
 <h3 id="61-旋转链表"><a href="#61-旋转链表" class="headerlink" title="61. 旋转链表"></a>61. 旋转链表</h3><p>思路:将单链表构成循环链表(头尾相连)，向前遍历头结点len-(k%len)-1次断开即可(与官方题解思路一致)</p>
 <p>这题比较简单，一次成。</p>
-<h3 id="82"><a href="#82" class="headerlink" title="82"></a>82</h3><h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://xxx.com">引用文章标题1</a></p>
+<h3 id="86-分隔链表"><a href="#86-分隔链表" class="headerlink" title="86 分隔链表"></a>86 分隔链表</h3><p>思路不够严谨，想要在原有链表上做尽可能少的处理完成题目。</p>
+<p>官方思路:弄两个头节点，一个存比目标大的节点，一个存比目标小的节点，最后再合并。</p>
+<p>老是出现内存问题（heap-use-after-free），没有指向NULL的结点，解决方法:large那一链表末加nullptr。</p>
+<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://xxx.com">引用文章标题1</a></p>
 <p>[2] <a target="_blank" rel="noopener" href="https://xxx.com">引用文章标题2</a></p>
 <p>[3] <a target="_blank" rel="noopener" href="https://xxx.com">引用文章标题3</a></p>
 
@@ -1050,7 +1053,7 @@ public:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.9k</span>&nbsp;字
+                class="white-color">20.1k</span>&nbsp;字
             
             
             
